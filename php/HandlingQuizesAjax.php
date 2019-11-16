@@ -3,7 +3,7 @@
 
 <head>
 	<?php include '../html/Head.html'?>
-	<!--script src="../js/ValidateFieldsQuestion.js"></script-->
+	<script src="../js/ValidateFieldsQuestion.js"></script>
 	<script src="../js/ShowImageInForm.js"></script>
 	<script src="../js/AddQuestionAjax.js"></script>
 	<script src="../js/ShowQuestionsAjax.js"></script>

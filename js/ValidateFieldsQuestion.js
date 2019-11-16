@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("#galderenF").submit(function() {
+    $("#gehitu").click(function() {
         if (checkRequired() && checkEposta() && checkGaldera() && checkZailtasuna()) {
             return true;
         } else {

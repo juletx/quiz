@@ -101,3 +101,7 @@ div#erabiltzaileKop {
 	display: inline-block;
 	border: 3px solid #999;
 }
+
+figure {
+	display: inline-block;
+}
