@@ -4,7 +4,8 @@
 <head>
 	<?php include '../html/Head.html'?>
 	<script src="../js/ShowImageInForm.js"></script>
-    <script src="../js/VerifyEnrollmentAjax.js"></script>
+	<script src="../js/VerifyEnrollmentAjax.js"></script>
+	<script src="../js/VerifyPassAjax.js"></script>
 </head>
 
 <body>
@@ -17,10 +18,10 @@
 						<h2>Erregistratu</h2>
 					</legend>
 					<label for="eposta">Ehuko eposta(*):</label>
-					<input type="email" id="eposta" name="eposta" onchange="verifyEnrollment(this.value)"
+					<input type="email" id="eposta" name="eposta"
 						pattern="([a-z]{3,}[0-9]{3}@ikasle\.ehu\.eu?s)|([a-z]+\.?[a-z]{2,}@ehu\.eu?s)" required>
-					<div id="pasahitz"></div>
-                    <br><br>
+					<span id="matrikulatuta"></span>
+					<br><br>
 					<label>Erabiltzaile mota(*):</label>
 					<input type="radio" id="ikaslea" name="mota" value="ikaslea" checked>
 					<label for="ikaslea">Ikaslea</label>
@@ -32,6 +33,7 @@
 					<br><br>
 					<label for="pasahitza">Pasahitza(*):</label>
 					<input type="password" id="pasahitza" name="pasahitza" required>
+					<span id="baliozkoa"></span>
 					<br><br>
 					<label for="pasahitza2">Pasahitza errepikatu(*):</label>
 					<input type="password" id="pasahitza2" name="pasahitza2" required>
@@ -41,7 +43,7 @@
 					<br><br>
 					<input type="file" id="argazkiaa" name="argazkia" accept="image/*">
 					<br><br>
-					<input type="submit" value="Erregistratu">
+					<input type="submit" id="submit" value="Erregistratu">
 					<input type="reset" value="Berrezarri">
 				</fieldset>
 			</form>
