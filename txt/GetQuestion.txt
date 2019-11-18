@@ -1,0 +1,29 @@
+Zerbitzuak itzultzen duen emaitzak 3 eremu dituenez konplexua da. Emaitza hori itzuli ahal
+izateko zerbitzarian mota konplexu bat sortu eta erregistratu behar da. Kasu honetan struct
+motakoa sortu dugu. Honek esan nahi du array-aren elementu bakoitzak izena eta mota zehazten
+duen array bat izango duela. Hau da zerbitzarian definitutako mota konplexua: 
+array(
+    'eposta' => array(
+        'name' => 'eposta',
+        'type' => 'xsd:string'
+    ),
+    'galdera' => array(
+        'name' => 'galdera',
+        'type' => 'xsd:string'
+	),
+	'erantzuna' => array(
+        'name' => 'erantzuna',
+        'type' => 'xsd:string'
+    )
+)
+
+Mota konplexua itzultzeko eremu bakoitzaren balioa aldagai batean gorde da eta gero horiekin 
+array-a eraiki da: array('eposta' => $eposta, 'galdera' => $galdera, 'erantzuna' => $erantzuna)
+Bezeroaren aldean eremuen balioa lortzeko array-aren eremuak izenez atzitzea: 
+$eposta = $galderarenDatuak['eposta'];
+Itzultzen den array-a nolakoa den hobeto ulertzeko adibide bat:
+array(
+    [eposta] => jetxaniz007@ikasle.ehu.eus
+    [galdera] => Non gordetzen dira cookie-ak?
+	[erantzuna] => Bezeroaren nabigatzailean
+)

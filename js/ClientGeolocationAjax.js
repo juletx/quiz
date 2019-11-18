@@ -8,7 +8,6 @@ $(document).ready(function () {
 		url: 'http://api.ipstack.com/' + ip + '?access_key=' + access_key + '&hostname=1',
 		dataType: 'jsonp',
 		success: function (json) {
-			// ip, continent_name, country_name, location.capital, region_name, city, zip
 			$("tbody tr td").eq(1).text(json.ip);
 			$("tbody tr td").eq(2).text(json.hostname);
 			$("tbody tr td").eq(3).text(json.continent_name);

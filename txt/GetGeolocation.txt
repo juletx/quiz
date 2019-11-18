@@ -1,0 +1,71 @@
+Erabili den zerbitzua https://ipstack.com/ da. Honek, IP bati buruzko informazioa ematen
+digu. XML eta JSON formatuetan eskaitzen du informazioa eta gure kasuan JSON aukeratu dugu.
+Doako bertsioan kokapenari buruzko informazioa bakarrik eskaintzen du baina ataza
+honetarako nahikoa da. Hori bai, doako bertsioak ez du konexio segurua ahalbidetzen eta
+000webhosten ongi funtzionatzeko http bidez sartu behar gara, eta ez https. Izan ere, bestela
+errore bat emango digu eta bezeroaren datuak ez dira bistaratuko.
+
+Bezeroaren datuak lortzeko JavaScript erabili da. Ajax-en bidez json fitxategia eskuratu da.
+Zehaztu beharreko parametroak url-a eta fitxategi mota dira. url-an ip-a eta sarbide kodea
+zehaztu behar dira. Kasu honetan ip bezala 'check' jarri da, eskaera egiten duenaren ip-a.
+Sarbide kodea zerbitzuan erregistratzean lortzen da. Itzultzen dituen datuetatik interesgarriak
+direnak Jquery erabiliz taula bateko kutxei esleitu zaizkie.
+
+Zerbitzariaren datuak lortzeko php erabili da. Konexioa egiteko cURL liburutegia erabili da. 
+url-a bezeroko berdina da, baina kasu honetan ip desberdina izango da. curl_opt funtzioarekin 
+itzulera aukera ezarri da eta curl_exec funtzioarekin json fitxategia eskuratu da. Fitxategi 
+hori dekodifikatu eta itzultzen dituen datuetatik interesgarriak direnekin php-ko echo erabiliz 
+taula bateko lerroa eraiki da.
+
+Zerbitzuak bezeroaren ip-arekin itzultzen dituen datu guztien adibidea:
+{
+  "ip":"83.213.123.147",
+  "hostname":"147.83-213-123.dynamic.clientes.euskaltel.es",
+  "type":"ipv4",
+  "continent_code":"EU",
+  "continent_name":"Europe",
+  "country_code":"ES",
+  "country_name":"Spain",
+  "region_code":"PV",
+  "region_name":"Basque Country",
+  "city":"Basauri",
+  "zip":"48160",
+  "latitude":43.28350067138672,
+  "longitude":-2.863300085067749,
+  "location":{
+    "geoname_id":6697039,
+    "capital":"Madrid",
+    "languages":[
+      {
+        "code":"es",
+        "name":"Spanish",
+        "native":"Espa\u00f1ol"
+      },
+      {
+        "code":"eu",
+        "name":"Basque",
+        "native":"Euskara"
+      },
+      {
+        "code":"ca",
+        "name":"Catalan",
+        "native":"Catal\u00e0"
+      },
+      {
+        "code":"gl",
+        "name":"Galician",
+        "native":"Galego"
+      },
+      {
+        "code":"oc",
+        "name":"Occitan",
+        "native":"Occitan"
+      }
+    ],
+    "country_flag":"http:\/\/assets.ipstack.com\/flags\/es.svg",
+    "country_flag_emoji":"\ud83c\uddea\ud83c\uddf8",
+    "country_flag_emoji_unicode":"U+1F1EA U+1F1F8",
+    "calling_code":"34",
+    "is_eu":true
+  }
+}

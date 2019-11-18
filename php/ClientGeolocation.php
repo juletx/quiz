@@ -14,7 +14,6 @@ curl_close($ch);
 // Decode JSON response:
 $api_result = json_decode($json, true);
 
-// ip, continent_name, country_name, location.capital, region_name, city, zip
 echo '<tr> <td><b>SERVER</b></td> <td>'.$api_result['ip'].'</td> <td>'.$api_result['hostname'].
 '</td> <td>'.$api_result['continent_name'].'</td> <td>'.$api_result['country_name'].
 '</td> <td>'.$api_result['region_name'].'</td> <td>'.$api_result['city'].'</td> <td>'.$api_result['zip'].'</td> </tr>';
