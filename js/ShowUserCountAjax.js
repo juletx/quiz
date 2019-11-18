@@ -5,7 +5,7 @@ $(document).ready(function () {
 	setInterval(showUserCount, 5000);
 
 	function showUserCount() {
-		$.get('../xml/Counter.xml', function (d) {
+		$.post('../xml/Counter.xml', function (d) {
 			var counter = $(d).find("counter").text();
 			$("#erabiltzaileKop").html("<h2>Erabiltzaile kopurua</h2><p>Galderak kudeatzen ari diren erabiltzaileak: " + counter + "</p>");
 		});

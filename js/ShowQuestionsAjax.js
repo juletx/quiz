@@ -4,7 +4,7 @@ xhro.onreadystatechange = function () {
 		document.getElementById('taula').innerHTML = xhro.responseText;
 	}
 }
-function galderakIkusi() {
+function showQuestions() {
 	var x = document.getElementById("taula");
 	if (window.getComputedStyle(x).display === "none") {
 		document.getElementById("taula").style.display = "inline-block";

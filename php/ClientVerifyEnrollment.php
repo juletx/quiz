@@ -7,6 +7,10 @@ $soapclient = new nusoap_client('http://ehusw.es/rosa/webZerbitzuak/egiaztatuMat
 $eposta = trim($_GET['eposta']);
 if (!empty($eposta)) {
 	$erantzuna = $soapclient->call('egiaztatuE', array('x' => $eposta));
-	echo $erantzuna;
+	if ($erantzuna == "BAI") {
+		echo "Eposta WSn matrikulaturik dago";
+	} else {
+		echo "Eposta ez dago WSn matrikulaturik";
+	}
 }
 ?>

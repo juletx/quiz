@@ -1,9 +1,7 @@
 $(document).ready(function() {
     $("#gehitu").click(function() {
         if (checkRequired() && checkEposta() && checkGaldera() && checkZailtasuna()) {
-            return true;
-        } else {
-            return false;
+            addQuestion();
         }
 
         function checkRequired() {
@@ -38,8 +36,8 @@ $(document).ready(function() {
 		}
 		
 		function checkZailtasuna() {
-			var zailtasuna = $('#zailtasuna').val();
-			if (zailtasuna != 1 && zailtasuna != 2 && zailtasuna != 3) {
+			var zailtasuna = $("input[name='zailtasuna']:checked").val();
+			if (zailtasuna !== "1" && zailtasuna !== "2" && zailtasuna !== "3") {
 				alert("Zailtasunak txikia, ertaina edo handia izan behar du");
 				return false;
 			}

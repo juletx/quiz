@@ -3,7 +3,7 @@ $(document).ready(function () {
 	setInterval(showQuestionCount, 10000);
 
 	function showQuestionCount() {
-		$.get('../xml/Questions.xml', function (d) {
+		$.post('../xml/Questions.xml', function (d) {
 			var galderak = $(d).find("assessmentItem");
 			var totalak = galderak.length;
 			var nireak = 0;

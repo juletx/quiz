@@ -4,9 +4,11 @@ $(document).ready(function () {
 		$.get('../php/ClientVerifyPass.php', { 'pasahitza': pasahitza }, function (d) {
 			if (d === "Pasahitz balioduna") {
 				$("#baliozkoa").css('color', 'green');
+				if ($("#matrikulatuta").text() === "Eposta WSn matrikulaturik dago") {
+					$("#submit").prop('disabled', false);
+				}
 			} else {
 				$("#baliozkoa").css('color', 'red');
-				$("#submit").attr("disabled", "disabled");
 			}
 			$("#baliozkoa").html(d);
 		});

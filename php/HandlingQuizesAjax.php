@@ -62,7 +62,7 @@
 					<input type="button" id="gehitu" value="Galdera gehitu">
 					<input type="reset" value="Berrezarri">
 					<br><br>
-					<input type="button" id="ikusi" value="Galderak ikusi/ezkutatu" onClick="galderakIkusi()">
+					<input type="button" id="ikusi" value="Galderak ikusi/ezkutatu" onClick="showQuestions()">
 				</fieldset>
 			</form>
 		</div>
