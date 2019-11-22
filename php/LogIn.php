@@ -1,3 +1,4 @@
+<?php session_start (); ?>
 <!DOCTYPE html>
 <html>
 
@@ -34,7 +35,7 @@
                     $eposta = $_POST['eposta'];
 					$pasahitza = $_POST['pasahitza'];
                 
-                    $sql = "SELECT pasahitza FROM users WHERE eposta='$eposta'";
+                    $sql = "SELECT * FROM users WHERE eposta='$eposta'";
                     $emaitza = mysqli_query($esteka, $sql);
 
                     if (!$emaitza) {
@@ -43,13 +44,22 @@
                         $lerroKopurua = mysqli_num_rows($emaitza);
                         if ($lerroKopurua == 0) {
                             echo "<script>alert('Erabiltzaile edo pasahitz okerra'); history.go(-1);</script>";
-                        } else {
+						} else {
 							$row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC);
-							$pasahitza_hash = $row['pasahitza'];
-							if (!password_verify($pasahitza, $pasahitza_hash)) {
-								echo "<script>alert('Erabiltzaile edo pasahitz okerra'); history.go(-1);</script>";
+							if ($row['blokeatuta']) {
+								echo "<script>alert('Erabiltzailea blokeatuta dago, jarri kontaktuan adminarekin'); history.go(-1);</script>";
 							} else {
-								echo "<script>alert('Ongi etorri ".$eposta."'); window.location.href = '../php/Layout.php?eposta=".$eposta."'</script>";
+								$pasahitza_hash = $row['pasahitza'];
+								if (!password_verify($pasahitza, $pasahitza_hash)) {
+									echo "<script>alert('Erabiltzaile edo pasahitz okerra'); history.go(-1);</script>";
+								} else {
+									$_SESSION["eposta"] = $eposta;
+									echo "<script>alert('Ongi etorri ".$eposta."');</script>";
+									if ($eposta == "admin@ehu.es") {
+										echo "<script>window.location.href = '../php/HandlingAccounts.php?eposta=".$eposta."'</script>";
+									}
+									echo "<script>window.location.href = '../php/HandlingQuizesAjax.php?eposta=".$eposta."'</script>";
+								}
 							}
                         }
                     }
