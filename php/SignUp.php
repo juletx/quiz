@@ -102,7 +102,7 @@
 						
 						$pasahitza_hash = password_hash($pasahitza, PASSWORD_DEFAULT);
 
-						$sql = "INSERT INTO users VALUES ('$eposta', '$mota', '$deiturak', '$pasahitza_hash', '$argazkia')";
+						$sql = "INSERT INTO users VALUES ('$eposta', '$mota', '$deiturak', '$pasahitza_hash', '$argazkia', 0)";
 						$emaitza = mysqli_query($esteka, $sql);
 			
 						mysqli_close($esteka);
