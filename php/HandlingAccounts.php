@@ -10,7 +10,9 @@
 <body>
     <?php include '../php/Menus.php' ?>
     <section class="main" id="s1">
-        <div>
+        <div id="taula">
+			<h2>Erabiltzaileak kudeatu</h2>
+			<br>
             <?php
                 include '../php/DbConfig.php';
 				$esteka = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db) or die("Errorea datu-baseko konexioan");
@@ -20,13 +22,14 @@
 
 				echo '<table> <thead> <tr> <th> EPOSTA </th> 
             	<th> PASAHITZA </th> <th> ARGAZKIA </th> 
-            	<th> EGOERA </th> <th> BLOKEATU </th> 
+            	<th> EGOERA </th> <th> ALDATU </th> 
 				<th> EZABATU </th> </tr> </thead> <tbody>';
 				   
 				while ($row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)) {
-					echo '<tr> <td>'.$row['eposta'].'</td> <td>'.$row['pasahitza'].
+					echo '<tr> <td>'.$row['eposta'].'</td> <td style="word-wrap:break-word; max-width:300px">'.$row['pasahitza'].
 					'</td> <td>'.argazkia($row['argazkia']).'</td> <td>'.blokeatuta($row['blokeatuta']).
-					'</td> <td> <button>Egoera aldatu</button> </td> <td> <button>Ezabatu</button> </td> </tr>';
+					'</td> <td> <button class="aldatu">Egoera aldatu</button>
+					</td> <td> <button class="ezabatu">Ezabatu</button> </td> </tr>';
 				}
 	
 				echo '</tbody> </table>';
@@ -34,7 +37,7 @@
 				function blokeatuta($blokeatuta) {
 					if ($blokeatuta)
 						return "Blokeatuta";
-					return "Aktibo";
+					return "Aktibatuta";
 				}
 
 				function argazkia($helbidea) {
