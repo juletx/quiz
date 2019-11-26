@@ -1,3 +1,4 @@
+<?php include '../php/SecurityUsers.php' ?>
 <!DOCTYPE html>
 <html>
 
@@ -26,7 +27,7 @@
 						<h2>Galdera gehitu</h2>
 					</legend>
 					<label for="eposta">Ehuko eposta(*):</label>
-					<input type="text" id="eposta" name="eposta" value="<?php echo $_GET['eposta']?>" readonly>
+					<input type="text" id="eposta" name="eposta" value="<?php echo $_SESSION['eposta']?>" readonly>
 					<br><br>
 					<label for="galdera">Galdera(*):</label>
 					<input type="text" id="galdera" name="galdera">

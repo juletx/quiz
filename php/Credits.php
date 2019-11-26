@@ -1,3 +1,4 @@
+<?php session_start (); ?>
 <!DOCTYPE html>
 <html>
 
@@ -34,7 +35,7 @@
 		<div id="taula">
 			<table>
 				<caption>
-					<h2>Bezeroaren eta zerbitzariaren datuak</h2>
+					<h2>Bezeroaren eta 000webhost zerbitzariaren datuak</h2>
 					<br>
 				</caption>
 				<thead>

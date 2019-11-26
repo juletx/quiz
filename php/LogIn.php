@@ -1,4 +1,4 @@
-<?php session_start (); ?>
+<?php include '../php/SecurityLoggedOut.php' ?>
 <!DOCTYPE html>
 <html>
 
@@ -56,9 +56,9 @@
 									$_SESSION["eposta"] = $eposta;
 									echo "<script>alert('Ongi etorri ".$eposta."');</script>";
 									if ($eposta == "admin@ehu.es") {
-										echo "<script>window.location.href = '../php/HandlingAccounts.php?eposta=".$eposta."'</script>";
+										echo "<script>window.location.href = '../php/HandlingAccounts.php'</script>";
 									}
-									echo "<script>window.location.href = '../php/HandlingQuizesAjax.php?eposta=".$eposta."'</script>";
+									echo "<script>window.location.href = '../php/HandlingQuizesAjax.php'</script>";
 								}
 							}
                         }

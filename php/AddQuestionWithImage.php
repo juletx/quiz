@@ -99,7 +99,7 @@
 					echo "<p>Galdera ondo gorde da xml-an</p>";
 				}
 
-				/*$eposta = $_GET['eposta'];
+				/*$eposta = $_SESSION['eposta'];
 
 				echo "<p><a href='QuestionFormWithImage.php?eposta=".$eposta."'>Galdera gehitu</a></p>";
 				echo "<p><a href='ShowQuestionsWithImage.php?eposta=".$eposta."'>Galderak ikusi</a></p>";

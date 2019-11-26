@@ -1,3 +1,4 @@
+<?php include '../php/SecurityLoggedOut.php' ?>
 <!DOCTYPE html>
 <html>
 
