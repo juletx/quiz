@@ -1,3 +1,4 @@
+<?php include '../php/SecurityAdmin.php' ?>
 <?php
 $eposta = trim($_GET["eposta"]);
 if (empty($eposta)) {

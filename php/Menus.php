@@ -51,8 +51,8 @@
 		
 	<?php } else { ?>
 
-		<span><a href="HandlingQuizesAjax.php">Galderak kudeatu</a></span>
 		<span><a href="ShowQuestionsWithImage.php">Galderak ikusi</a></span>
+		<span><a href="HandlingQuizesAjax.php">Galderak kudeatu</a></span>
 		<span><a href="ClientGetQuestion.php">Galderak eskuratu</a></span>
 
 	<?php } ?>

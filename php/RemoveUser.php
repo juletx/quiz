@@ -1,8 +1,10 @@
+<?php include '../php/SecurityAdmin.php' ?>
 <?php
 $eposta = trim($_GET["eposta"]);
 if (empty($eposta)) {
 	echo "<script>alert('Epostarik ez dago'); history.go(-1);</script>";
 }
+
 include '../php/DbConfig.php';
 $esteka = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db) or die("Errorea datu-baseko konexioan");
 

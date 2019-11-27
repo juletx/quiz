@@ -14,4 +14,9 @@ $(document).ready(function () {
 			$("#baliozkoa").html(d);
 		});
 	});
+
+	$("input[type='reset']").click(function() {
+		$('#baliozkoa').text("");
+		$('#matrikulatuta').text("");
+	});
 });
