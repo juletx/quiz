@@ -10,6 +10,7 @@
     $user = $service->userinfo->get();
 
     $_SESSION['eposta'] = $user->email;
+    $_SESSION['image']= $user->picture;
     $newURL="HandlingQuizesAjax.php";
     header('Location: '.$newURL);
 ?>

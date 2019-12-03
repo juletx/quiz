@@ -39,7 +39,9 @@
 					$helbidea = $row['argazkia'];
 				}            
 			}
-	
+            if (!empty($_SESSION["image"])){
+                $helbidea=$_SESSION["image"];
+            }
 			mysqli_free_result($emaitza);
 			mysqli_close($esteka);
 		
