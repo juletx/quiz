@@ -1,63 +1,79 @@
-<div id='page-wrap'>
-    <header class='main' id='h1'>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+	<a class="navbar-brand" href="Layout.php">Quiz</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup1"
+		aria-controls="navbarNavAltMarkup1" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup1">
+		<div class="navbar-nav mr-auto">
+			<a class="nav-item nav-link" href="Layout.php">Hasiera</a>
 
-	<?php if (empty($_SESSION["eposta"])) { ?>
+		<?php if (empty($_SESSION["eposta"])) { ?>
 
-		<span><a href="SignUp.php">Erregistratu</a></span>
-		<span><a href="LogIn.php">Login</a></span>
-		<span>Anonimoa</span>
-		<img id="argazkia" src="../images/Anonimoa.png" alt="argazkia" class="argazkiaLogin">
-    </header>
-	<nav class='main' id='n1' role='navigation'>
-        <span><a href="Layout.php">Hasiera</a></span>
-		<span><a href="Credits.php">Kredituak</a></span>
-	</nav>
-	
-	<?php } else { $eposta = $_SESSION["eposta"]; ?>
+			<a class="nav-item nav-link" href="Credits.php">Kredituak</a>
+		</div>
+		<div class="navbar-nav ml-auto">
+			<a class="nav-item nav-link" href="SignUp.php">Erregistratu</a>
+			<?php include 'Login.php'; ?>
+			<!--span>Anonimoa</span>
+			<img id="argazkia" src="../images/Anonimoa.png" alt="argazkia" class="argazkiaLogin"-->
+		</div>
 
-		<span><a href="LogOut.php">Logout</a></span>
-        <span><?php echo $eposta ?></span>
+		<?php } else { 
+			include '../php/DbConfig.php';
+			$esteka = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db) or die("Errorea datu-baseko konexioan");
 
-		<?php
-		include '../php/DbConfig.php';
-		$esteka = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db) or die("Errorea datu-baseko konexioan");
+			$eposta = $_SESSION["eposta"];
+				
+			$sql = "SELECT argazkia FROM users WHERE eposta='$eposta'";
+			$emaitza = mysqli_query($esteka, $sql);
 			
-		$sql = "SELECT argazkia FROM users WHERE eposta='$eposta'";
-		$emaitza = mysqli_query($esteka, $sql);
-		
-		if (!$emaitza) {
-			echo "Errorea datu basearen kontsultan".PHP_EOL;
-		} else {
-			$lerroKopurua = mysqli_num_rows($emaitza);
-			if ($lerroKopurua == 0) {
-				echo "<script>alert('Argazkirik ez eposta honentzat')</script>".PHP_EOL;
+			if (!$emaitza) {
+				echo "Errorea datu basearen kontsultan".PHP_EOL;
 			} else {
-				$row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC);
-				$helbidea = $row['argazkia'];
-				echo '<img id="argazkia" src="'.$helbidea.'" alt="argazkia" class="argazkiaLogin">'.PHP_EOL;
-			}            
-		}
-
-		mysqli_free_result($emaitza);
-		mysqli_close($esteka);
-		?>
-	</header>
-	<nav class='main' id='n1' role='navigation'>
-		<span><a href="Layout.php">Hasiera</a></span>
+				$lerroKopurua = mysqli_num_rows($emaitza);
+				if ($lerroKopurua == 0) {
+					echo "<script>alert('Argazkirik ez eposta honentzat')</script>".PHP_EOL;
+				} else {
+					$row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC);
+					$helbidea = $row['argazkia'];
+				}            
+			}
+	
+			mysqli_free_result($emaitza);
+			mysqli_close($esteka);
 		
-	<?php if ($eposta == "admin@ehu.es") { ?>
+			if ($eposta == "admin@ehu.es") { 
+			?>
+			<a class="nav-item nav-link" href="HandlingAccounts.php">Erabiltzaileak kudeatu</a>
 
-		<span><a href="HandlingAccounts.php">Erabiltzaileak kudeatu</a></span>
+		<?php } else { ?>
+
+			<a class="nav-item nav-link" href="ShowQuestionsWithImage.php">Galderak ikusi</a>
+			<a class="nav-item nav-link" href="HandlingQuizesAjax.php">Galderak kudeatu</a>
+			<a class="nav-item nav-link" href="ClientGetQuestion.php">Galderak eskuratu</a>
 		
-	<?php } else { ?>
+		<?php } ?>
 
-		<span><a href="ShowQuestionsWithImage.php">Galderak ikusi</a></span>
-		<span><a href="HandlingQuizesAjax.php">Galderak kudeatu</a></span>
-		<span><a href="ClientGetQuestion.php">Galderak eskuratu</a></span>
-
-	<?php } ?>
-
-		<span><a href="Credits.php">Kredituak</a></span>
-	</nav>
-
-	<?php } ?>
+			<a class="nav-item nav-link" href="Credits.php">Kredituak</a></span>
+		</div>
+		
+		<div class="navbar-nav ml-auto">
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">
+					<?php 
+						echo $eposta;
+						echo '<img id="argazkia" src="'.$helbidea.'" alt="argazkia" class="argazkiaLogin">'.PHP_EOL;
+					?>
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<!--a class="dropdown-item" href="ManageAccount.php">Profila</a-->
+					<a class="dropdown-item"
+						onclick="if (confirm('Ziur al zaude?')) location.href='LogOut.php'">Logout</a>
+				</div>
+			</li>
+		</div>
+		<?php } ?>
+	</div>
+</nav>

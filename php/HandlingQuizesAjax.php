@@ -15,6 +15,7 @@
 <body>
 	<?php include '../php/Menus.php'?>
 	<section class="main" id="s1">
+		<h2>Galderak kudeatu</h2>
 		<div id="erabiltzaileKop">
 		</div>
 		<div id="galderaKop">
@@ -60,10 +61,10 @@
 					<br><br>
 					<input type="file" id="argazkiaa" name="argazkia" accept="image/*">
 					<br><br>
-					<input type="button" id="gehitu" value="Galdera gehitu">
-					<input type="reset" value="Berrezarri">
+					<input class="btn btn-success" type="button" id="gehitu" value="Galdera gehitu">
+					<input class="btn btn-danger" type="reset" value="Berrezarri">
 					<br><br>
-					<input type="button" id="ikusi" value="Galderak ikusi/ezkutatu" onClick="showQuestions()">
+					<input class="btn btn-success" type="button" id="ikusi" value="Galderak ikusi/ezkutatu" onClick="showQuestions()">
 				</fieldset>
 			</form>
 		</div>

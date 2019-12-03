@@ -18,8 +18,8 @@
 					<label for="identifikadorea">Identifikadorea(*):</label>
 					<input type="number" id="identifikadorea" name="identifikadorea">
 					<br><br>
-					<input type="submit" value="Galdera eskuratu">
-					<input type="reset" value="Berrezarri">
+					<input class="btn btn-success" type="submit" value="Galdera eskuratu">
+					<input class="btn btn-danger" type="reset" value="Berrezarri">
 					<br><br>
 					<label for="eposta">Eposta:</label>
 					<input type="text" id="eposta" name="eposta" readonly>

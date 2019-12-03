@@ -16,22 +16,22 @@ if (!$emaitza) {
 	die();
 } else {
 	$row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC);
-	$bloakeatuta = $row['blokeatuta'];
+	$blokeatuta = $row['blokeatuta'];
 }
 
 mysqli_free_result($emaitza);
 
-if ($bloakeatuta) {
-	$bloakeatuta = 0;
-	$erantzuna = "Aktibatuta";
+if ($blokeatuta) {
+	$blokeatuta = 0;
+	$erantzuna = "<span style='color:green'>Aktibatuta</span>";
 } else {
-	$bloakeatuta = 1;
-	$erantzuna = "Blokeatuta";
+	$blokeatuta = 1;
+	$erantzuna = "<span style='color:red'>Blokeatuta</span>";
 }
 	
 echo $erantzuna;
 
-$sql = "UPDATE users SET blokeatuta='$bloakeatuta' WHERE eposta='$eposta'";
+$sql = "UPDATE users SET blokeatuta='$blokeatuta' WHERE eposta='$eposta'";
 $emaitza = mysqli_query($esteka, $sql);
 
 mysqli_close($esteka);

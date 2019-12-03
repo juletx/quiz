@@ -12,32 +12,27 @@
 	<section class="main" id="s1">
 		<div>
 			<h2>Kredituak</h2>
-			<br>
+
 			<h3>Deiturak: Julen Etxaniz eta Aitor Zubillaga</h3>
 
-			<h3>Ikastegia: Informatika Fakultatea</h3>
+			<h3>Gradua: Ingeniaritza Informatikoa</h3>
 
 			<h3>Espezialitatea: Software Ingeniaritza</h3>
 
 			<h3>Udalerria: Azpeitia</h3>
-			<br>
-			<figure>
+			<figure class="credits-image">
 				<img src="../images/JulenEtxaniz.jpg" alt="JulenEtxaniz">
 				<figcaption>Julen Etxaniz</figcaption>
 			</figure>
 
-			<figure>
+			<figure class="credits-image">
 				<img src="../images/AitorZubillaga.png" alt="AitorZubillaga">
 				<figcaption>Aitor Zubillaga</figcaption>
 			</figure>
 		</div>
-		<br>
 		<div id="taula">
+		<h2>Bezeroaren eta zerbitzariaren datuak</h2>
 			<table>
-				<caption>
-					<h2>Bezeroaren eta 000webhost zerbitzariaren datuak</h2>
-					<br>
-				</caption>
 				<thead>
 					<tr>
 						<th style="visibility:hidden;"></th>
