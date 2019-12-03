@@ -1,4 +1,8 @@
 <?php include '../php/SecurityLoggedOut.php' ?>
+<?php
+        require_once "Config.php";
+        $loginURL= $client->createAuthUrl();
+?>
 <!DOCTYPE html>
 <html>
 
@@ -24,9 +28,9 @@
 					<br><br>
 					<input type="submit" value="Login">
 					<input type="reset" value="Berrezarri">
-				</fieldset>
+                    <input type="button" onclick="window.location = '<?php echo $loginURL ?>';"></div>
+                </fieldset>
 			</form>
-
 			<?php
                 if (isset($_POST["eposta"])) {
                     include '../php/DbConfig.php';
