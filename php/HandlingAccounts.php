@@ -22,27 +22,38 @@
 				$emaitza = mysqli_query($esteka, $sql) or die("Errorea datu-baseko kontsultan");
 
 				echo '<table> <thead> <tr> <th> EPOSTA </th> 
-            	<th> PASAHITZA </th> <th> ARGAZKIA </th> 
+            	<th> PASAHITZA </th> <th> MOTA </th> <th> ARGAZKIA </th> 
             	<th> EGOERA </th> <th> ALDATU </th> 
 				<th> EZABATU </th> </tr> </thead> <tbody>';
 				   
 				while ($row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)) {
 					echo '<tr> <td>'.$row['eposta'].'</td> <td style="word-wrap:break-word; max-width:300px">'.$row['pasahitza'].
-					'</td> <td>'.argazkia($row['argazkia']).'</td> <td>'.blokeatuta($row['blokeatuta']).
-					'</td> <td> <button class="aldatu">Egoera aldatu</button>
-					</td> <td> <button class="ezabatu">Ezabatu</button> </td> </tr>';
+					'</td> <td>'.$row['mota'].'</td> <td>'.argazkia($row['argazkia']).'</td> <td>'.blokeatuta($row['blokeatuta']).
+					'</td> <td>'.aldatuButton($row['eposta']).'</td> <td>'.ezabatuButton($row['eposta']).'</td> </tr>';
 				}
 	
 				echo '</tbody> </table>';
 
 				function blokeatuta($blokeatuta) {
 					if ($blokeatuta)
-						return "Blokeatuta";
-					return "Aktibatuta";
+						return "<span style='color:red'>Blokeatuta</span>";
+					return "<span style='color:green'>Aktibatuta</span>";
 				}
 
 				function argazkia($helbidea) {
 					return "<img src='$helbidea' alt='Ez dauka' class='argazkia'>";
+				}
+
+				function aldatuButton($eposta) {
+					if ($eposta == "admin@ehu.es")
+						return '<button class="aldatu btn btn-warning" disabled>Egoera aldatu</button>';
+					return '<button class="aldatu btn btn-warning">Egoera aldatu</button>';
+				}
+
+				function ezabatuButton($eposta) {
+					if ($eposta == "admin@ehu.es")
+						return '<button class="ezabatu btn btn-danger" disabled>Ezabatu</button>';
+					return '<button class="ezabatu btn btn-danger">Ezabatu</button>';
 				}
 
 				mysqli_free_result($emaitza);

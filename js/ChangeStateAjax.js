@@ -7,7 +7,7 @@ $(document).ready(function () {
 			url: "../php/ChangeState.php?eposta=" + eposta,
 			cache: false,
 			success: function (result) {
-				td.prev().text(result);
+				td.prev().html(result);
 			},
 		});
 	});

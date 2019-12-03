@@ -1,9 +1,9 @@
 @charset "utf-8";
 
-* {
+/* {
     margin: 0;
     padding: 0;
-}
+}*/
 
 body {
     font: 16px Georgia, serif;
@@ -21,27 +21,39 @@ body {
     color: black;
 }
 
+section.main {
+	position: relative;
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
 section>div {
     padding: 5px;
 }
 
-header,
-nav,
+/*header,
 section {
     background: #eee;
     text-align: center;
-}
+}*/
 
 footer {
-    background: #eee;
-    text-align: center;
+    background: rgb(25, 25, 25);
+	text-align: center;
+	height: 56px;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 }
 
-nav span {
+/*nav span {
     margin: 0px 10px 0px 0px;
     width: 100%;
     display: inline-block;
-}
+}*/
 
 #ErrorMsgs {
     color: #f61;
@@ -102,6 +114,14 @@ div#erabiltzaileKop {
 	border: 3px solid #999;
 }
 
-figure {
+figure.credits-image {
 	display: inline-block;
+}
+
+nav.navbar {
+	z-index: 1;
+	background-color: rgb(25, 25, 25);
+	position: fixed;
+	width: 100%;
+	top: 0;
 }

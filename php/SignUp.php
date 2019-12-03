@@ -44,8 +44,8 @@
 					<br><br>
 					<input type="file" id="argazkiaa" name="argazkia" accept="image/*">
 					<br><br>
-					<input type="submit" id="submit" value="Erregistratu" disabled="true">
-					<input type="reset" value="Berrezarri">
+					<input class="btn btn-success" type="submit" id="submit" value="Erregistratu" disabled="true">
+					<input class="btn btn-danger" type="reset" value="Berrezarri">
 				</fieldset>
 			</form>
 
