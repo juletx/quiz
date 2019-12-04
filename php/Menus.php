@@ -14,7 +14,7 @@
 		</div>
 		<div class="navbar-nav ml-auto">
 			<a class="nav-item nav-link" href="SignUp.php">Erregistratu</a>
-			<?php include 'Login.php'; ?>
+			<?php include 'LogIn.php'; ?>
 			<!--span>Anonimoa</span>
 			<img id="argazkia" src="../images/Anonimoa.png" alt="argazkia" class="argazkiaLogin"-->
 		</div>
@@ -32,9 +32,7 @@
 				echo "Errorea datu basearen kontsultan".PHP_EOL;
 			} else {
 				$lerroKopurua = mysqli_num_rows($emaitza);
-				if ($lerroKopurua == 0) {
-					echo "<script>alert('Argazkirik ez eposta honentzat')</script>".PHP_EOL;
-				} else {
+				if ($lerroKopurua != 0){
 					$row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC);
 					$helbidea = $row['argazkia'];
 				}            

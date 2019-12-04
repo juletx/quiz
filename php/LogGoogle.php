@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once "config.php";
+    require_once "Config.php";
     if (isset($_GET['code'])){
         $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
         $_SESSION['access_token']=$token;
