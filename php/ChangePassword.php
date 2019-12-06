@@ -29,7 +29,7 @@
                     <label for="kodea">Sartu ezazu kodea(*):</label>
                     <input type="number" id="kodea" name="kodea" required>
                     <br><br>
-                    <input class="btn btn-success" type="submit" id="submit" value="Bidali">
+                    <input class="btn btn-success" type="submit" id="submit" value="Bidali" disabled>
 					<input class="btn btn-danger" type="reset" value="Berrezarri">
 				</fieldset>
 			</form>
@@ -52,7 +52,7 @@
                         include '../php/DbConfig.php';
                         $esteka = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db) or die("Errorea datu-baseko konexioan");
                         
-                        $sql = "SELECT * FROM users WHERE email='$eposta'";
+                        $sql = "SELECT * FROM users WHERE eposta='$eposta'";
                         $emaitza = mysqli_query($esteka, $sql);
 
                         if (!$emaitza) {
@@ -66,7 +66,7 @@
                         mysqli_free_result($emaitza);
                         
                         $password_hash = password_hash($password1, PASSWORD_DEFAULT);
-                        $sql = "UPDATE users SET password='$password_hash' WHERE email='$email'"; 
+                        $sql = "UPDATE users SET pasahitza='$password_hash' WHERE eposta='$eposta'"; 
                         $emaitza = mysqli_query($esteka, $sql);   
                         mysqli_close($esteka);			
                         if (!$emaitza) {
