@@ -13,7 +13,8 @@
 			<a class="nav-item nav-link" href="Credits.php">Kredituak</a>
 		</div>
 		<div class="navbar-nav ml-auto">
-			<a class="nav-item nav-link" href="SignUp.php">Erregistratu</a>
+            <a class="nav-item nav-link" href="SendPasswordEmail.php">Pasahitza berreskuratu</a>
+            <a class="nav-item nav-link" href="SignUp.php">Erregistratu</a>
 			<?php include 'LogIn.php'; ?>
 			<!--span>Anonimoa</span>
 			<img id="argazkia" src="../images/Anonimoa.png" alt="argazkia" class="argazkiaLogin"-->
