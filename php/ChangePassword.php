@@ -17,29 +17,36 @@
 					</legend>
 					<label for="eposta">Pasahitza berrezartzeko eposta:*</label>
 					<input type="email" id="eposta" name="eposta" value="<?php echo $_SESSION['eposta']?>" readonly>
-					<label for="pasahitza">Pasahitza(*):</label>
+					<br>
+                    <label for="pasahitza">Pasahitza(*):</label>
 					<input type="password" id="pasahitza" name="pasahitza" required>
 					<span id="baliozkoa"></span>
 					<br><br>
 					<label for="pasahitza2">Pasahitza errepikatu(*):</label>
 					<input type="password" id="pasahitza2" name="pasahitza2" required>
 					<br><br>
+                    <input type="number" id="kodea" name="kodea" required>
+                    <br><br>
                     <input class="btn btn-success" type="submit" id="submit" value="Bidali">
 					<input class="btn btn-danger" type="reset" value="Berrezarri">
 				</fieldset>
 			</form>
 
 			<?php
-                $password1 = trim($_POST["pasahitza"]);
-                $password2 = trim($_POST["pasahitza2"]);
-                if (isset($_POST["eposta"])) {
+                
+                if (isset($_POST["eposta"])&& isset($_POST["pasahitza"]) && isset($_POST["pasahitza2"]) && isset($_POST["kodea"])) {
 					$eposta = trim($_POST["eposta"]);
-
-					if (empty($password1) || empty($password2) ||empty($eposta)) {
+                    $password1 = trim($_POST["pasahitza"]);
+                    $password2 = trim($_POST["pasahitza2"]);
+                    $kodea = trim($_POST["kodea"]);
+					if (empty($password1) || empty($password2) ||empty($eposta) ||empty($kodea)) {
 						echo "<script>alert('Bete eremu guztiak'); history.go(-1);</script>";
 					}else if ($password1 != $password2) {
-                        echo "<script>alert('Pasahitzak ez dira berdinak');</script>";
+                        echo "<script>alert('Pasahitzak ez dira berdinak');</script>";}
+                    else if ($kodea != $_SESSION['kodea']) {
+                        echo "<script>alert('Kodea ez da zuzena');</script>";
                     }else {
+                        
                         include '../php/DbConfig.php';
                         $esteka = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db) or die("Errorea datu-baseko konexioan");
                         

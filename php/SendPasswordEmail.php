@@ -16,8 +16,7 @@
 						<h2>Mezua bidali</h2>
 					</legend>
 					<label for="eposta">Pasahitza berrezartzeko eposta:*</label>
-					<input type="email" id="eposta" name="eposta"
-						pattern="([a-z]{3,}[0-9]{3}@ikasle\.ehu\.eu?s)|([a-z]+\.?[a-z]{2,}@ehu\.eu?s)" required>
+					<input type="email" id="eposta" name="eposta" required>
 					<input class="btn btn-success" type="submit" id="submit" value="Bidali">
 					<input class="btn btn-danger" type="reset" value="Berrezarri">
 				</fieldset>
@@ -29,10 +28,6 @@
 
 					if (empty($eposta)) {
 						echo "<script>alert('Bete eremu guztiak'); history.go(-1);</script>";
-					}
-					else if (!(preg_match('/[a-z]{3,}[0-9]{3}@ikasle\.ehu\.eu?s/', $eposta) || 
-						preg_match('/[a-z]+\.?[a-z]{2,}@ehu\.eu?s/', $eposta))) {
-						echo "<script>alert('Posta elektronikoa ez da zuzena'); history.go(-1);</script>";
 					}
 					else {
                         include '../php/DbConfig.php';
@@ -51,12 +46,11 @@
 						mysqli_free_result($emaitza);
                         $subject="Pasahitzaren berrezarpera";
                         $kodea=rand(100000,999999);
-                        $_SESSION['eposta']=$eposta;
+                        $_SESSION['eposta2']=$eposta;
                         $_SESSION['kodea']=$kodea;
-                        $mezua = "
-                        <html>
+                        $mezua ='<html>
                         <head>
-                        <title>Pasahitza berreskuratu<title>
+                          <title>Recordatorio de cumpleaños para Agosto</title>
                         </head>
                         <body>
                         <h3>Jarraitu beharreko urratsak:</h3>
@@ -66,15 +60,15 @@
                         <li>Orrialdeak jakinaraziko dizu pazahitza zuzen aldatu</li>
                         </ol>
                         <h3>Orrialde honetara joan:</h3>
-                        <h2><a href='http://wst03.000webhostapp.com/wst03/php/ChangePassword.php?eposta=".$eposta."'>Hemen</a></h2>
+                        <h2><a href="http://wst03.000webhostapp.com/wst03/php/ChangePassword.php?eposta='.$eposta.'" >Hemen</a></h2>
                         <h2>Berrezarpen kodea:</h2>
-                        <h2>".$kodea."</h2>
+                        <h2>"'.$kodea.'"</h2>
                         </body>
                         </html>
-                        ";
+                        ';
                         $headers =  'MIME-Version: 1.0' . "\r\n";
                         $headers .= 'From: Quiz Game <info@wst03.000webhostapp.com>' . "\r\n";
-                        $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+                        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
                         mail($eposta,$subject,$mezua,$headers);
                         echo 'Eposta zuzen bidali da';
                     }
