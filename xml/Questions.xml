@@ -40,4 +40,4 @@
 			<value>Errotariak</value>
 		</incorrectResponses>
 	</assessmentItem>
-</assessmentItems>
+<assessmentItem author="jetxaniz007@ikasle.ehu.eus" subject="Informatika"><itemBody><p>Non gordetzen dira cookie-ak?</p></itemBody><correctResponse><value>adwdda</value></correctResponse><incorrectResponses><value>adwdawda</value><value>adwadwd</value><value>awdadw</value></incorrectResponses></assessmentItem><assessmentItem author="jetxaniz007@ikasle.ehu.eus" subject="Informatika"><itemBody><p>Galdera bat</p></itemBody><correctResponse><value>zuzena</value></correctResponse><incorrectResponses><value>okerra1</value><value>okerra2</value><value>okerra3</value></incorrectResponses></assessmentItem></assessmentItems>

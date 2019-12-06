@@ -13,7 +13,7 @@
 	<?php include '../php/Menus.php' ?>
 	<section class="main" id="s1">
 		<div id="form">
-			<form id="galderenF" name="galderenF" action="#" method="post" enctype="multipart/form-data">
+			<form id="galderenF" name="galderenF" method="post" enctype="multipart/form-data">
 				<fieldset>
 					<legend>
 						<h2>Erregistratu</h2>

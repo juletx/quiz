@@ -7,6 +7,7 @@
 	<div class="collapse navbar-collapse" id="navbarNavAltMarkup1">
 		<div class="navbar-nav mr-auto">
 			<a class="nav-item nav-link" href="Layout.php">Hasiera</a>
+			<a class="nav-item nav-link" href="PlayQuiz.php">Jolastu</a>
 
 		<?php if (empty($_SESSION["eposta"])) { ?>
 
