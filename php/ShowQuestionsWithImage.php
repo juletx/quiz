@@ -9,9 +9,8 @@
 <body>
     <?php include '../php/Menus.php' ?>
     <section class="main" id="s1">
-        <div id="taula">
-            <h2>Galderak ikusi</h2>
-			<br>
+		<h2>Galderak ikusi</h2>
+		<div class="table-responsive-lg" id="taula">
             <?php
             include '../php/DbConfig.php';
             $esteka = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db) or die("Errorea datu-baseko konexioan");
@@ -19,7 +18,7 @@
             $sql = "SELECT * FROM questions";
             $emaitza = mysqli_query($esteka, $sql);
 
-            echo '<table border=1> <thead> <tr> <th> ID </th> <th> EPOSTA </th> 
+            echo '<table class="table table-bordered table-hover"> <thead> <tr> <th> ID </th> <th> EPOSTA </th> 
             <th> GALDERA </th> <th> ERANTZUNA </th> 
             <th colspan="3"> ERANTZUN OKERRAK </th> <th> ZAILTASUNA </th> 
             <th> GAIA </th> <th> ARGAZKIA </th> </tr> </thead> <tbody>';

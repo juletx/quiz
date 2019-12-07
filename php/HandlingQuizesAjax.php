@@ -64,15 +64,16 @@
 					<input class="btn btn-success" type="button" id="gehitu" value="Galdera gehitu">
 					<input class="btn btn-danger" type="reset" value="Berrezarri">
 					<br><br>
-					<input class="btn btn-success" type="button" id="ikusi" value="Galderak ikusi/ezkutatu" onClick="showQuestions()">
 				</fieldset>
 			</form>
 		</div>
 		<br>
 		<div id="feedback" style="display:none">
 		</div>
+		<h2>XML Galderak ikusi</h2>
+		<input class="btn btn-success" type="button" id="ikusi" value="Galderak ikusi/ezkutatu" onClick="showQuestions()">
 		<br>
-		<div id="taula" style="display:none">
+		<div class="table-responsive-sm" id="taula" style="display:none">
 		</div>
 	</section>
 	<?php include '../html/Footer.html' ?>

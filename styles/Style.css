@@ -6,19 +6,19 @@
 }*/
 
 body {
-    font: 16px Georgia, serif;
+	font: 16px Georgia, serif;
 }
 
 #page-wrap {
-    margin: 2% auto;
-    color: white;
+	margin: 2% auto;
+	color: white;
 }
 
 #page-wrap>.main {
-    border: 1px solid #999;
-    padding: 1%;
-    margin-bottom: 1px;
-    color: black;
+	border: 1px solid #999;
+	padding: 1%;
+	margin-bottom: 1px;
+	color: black;
 }
 
 section.main {
@@ -31,7 +31,7 @@ section.main {
 }
 
 section>div {
-    padding: 5px;
+	padding: 5px;
 }
 
 /*header,
@@ -41,10 +41,9 @@ section {
 }*/
 
 footer {
-    background: rgb(25, 25, 25);
+	background: rgb(25, 25, 25);
 	text-align: center;
-	height: 56px;
-	position: fixed;
+	position: relative;
 	bottom: 0;
 	width: 100%;
 }
@@ -56,38 +55,42 @@ footer {
 }*/
 
 #ErrorMsgs {
-    color: #f61;
-    font-size: smaller;
+	color: #f61;
+	font-size: smaller;
 }
 
-table, th, td {
-    border: 2px solid black;
-    border-collapse: collapse;
+table.table-bordered {
+	border: 2px solid black;
 }
 
-th, td {
-    padding: 5px;
+table.table-bordered>thead>tr>th {
+	border: 2px solid black;
+}
+
+table.table-bordered>tbody>tr>td {
+	border: 2px solid black;
+	vertical-align: middle;
 }
 
 img.argazkia {
-    max-height: 50px;
-    max-width: 100px;
+	max-height: 50px;
+	max-width: 100px;
 }
 
 img.argazkiaLogin {
-    max-height: 38px;
-    max-width: 50px;
+	max-height: 38px;
+	max-width: 50px;
 }
 
 fieldset {
-    padding: 10px;
-    border: 3px solid #999;
+	padding: 10px;
+	border: 3px solid #999;
 }
 
 section {
-    max-height: 100%;
-    max-width: 100%;
-    overflow: auto;
+	max-height: 100%;
+	max-width: 100%;
+	overflow: auto;
 }
 
 div#form {

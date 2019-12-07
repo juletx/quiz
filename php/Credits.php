@@ -30,9 +30,9 @@
 				<figcaption>Aitor Zubillaga</figcaption>
 			</figure>
 		</div>
-		<div id="taula">
+		<div class="table-responsive-lg" id="taula">
 		<h2>Bezeroaren eta zerbitzariaren datuak</h2>
-			<table>
+			<table class="table table-bordered table-hover">
 				<thead>
 					<tr>
 						<th style="visibility:hidden;"></th>

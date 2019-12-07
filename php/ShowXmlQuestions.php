@@ -9,13 +9,13 @@
 <body>
 	<?php //include '../php/Menus.php' ?>
 	<section class="main" id="s1">
-		<div id="taula"-->
+		<div id="taula">
 			<h2> XML galderak ikusi</h2> 
-			<br>
+			<br-->
 			<?php
 			$questions = simplexml_load_file('../xml/Questions.xml');
 			
-			$irteera = "<table border=1> <thead> <tr> <th> EPOSTA </th> 
+			$irteera = "<table class='table table-bordered table-hover'> <thead> <tr> <th> EPOSTA </th> 
 			<th> GALDERA </th> <th> ERANTZUNA </th> </tr> </thead> <tbody>";
 
             foreach($questions->xpath('//assessmentItem') as $galdera) {
