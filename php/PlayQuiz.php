@@ -10,12 +10,12 @@
 <body>
     <?php include '../php/Menus.php' ?>
     <section class="main" id="s1">
-        <div>
+        <div id="jolastu">
 			<h2>Jolastu</h2>
 
 			<form id="galdera_gaia">
 				<label for="gaia">Gaia:</label>
-				<select id="gaia" name="gaia">
+				<select class="form-control" id="gaia" name="gaia">
 				<?php
 					include '../php/DbConfig.php';
 					$esteka = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db) or die("Errorea datu-baseko konexioan");
@@ -31,6 +31,7 @@
 					mysqli_close($esteka);
 				?>
 				</select>
+				<br>
 				<input class="btn btn-success" type="submit" id="jolastu" value="Jolastu">
 			</form>
 			<?php
@@ -55,24 +56,28 @@
 								<h4>'.$row['galdera'].'</h4>
 								<img src='.$row['argazkia'].' alt="Argazkia" class="argazkia">
 								<br>
-								<input type="radio" id="erantzuna1" name="erantzuna" value="'.$erantzunak[0].'" required>
-								<label for="erantzuna1">'.$erantzunak[0].'</label>
-								<br>
-								<input type="radio" id="erantzuna2" name="erantzuna" value="'.$erantzunak[1].'" required>
-								<label for="erantzuna2">'.$erantzunak[1].'</label>
-								<br>
-								<input type="radio" id="erantzuna3" name="erantzuna" value="'.$erantzunak[2].'" required>
-								<label for="erantzuna3">'.$erantzunak[2].'</label>
-								<br>
-								<input type="radio" id="erantzuna4" name="erantzuna" value="'.$erantzunak[3].'" required>
-								<label for="erantzuna4">'.$erantzunak[3].'</label>
+								<div class="form-check">
+									<input type="radio" class="form-check-input" id="erantzuna1" name="erantzuna" value="'.$erantzunak[0].'" required>
+									<label for="erantzuna1" class="form-check-label">'.$erantzunak[0].'</label>
+								</div>
+								<div class="form-check">
+									<input type="radio" class="form-check-input" id="erantzuna2" name="erantzuna" value="'.$erantzunak[1].'" required>
+									<label for="erantzuna2" class="form-check-label">'.$erantzunak[1].'</label>
+								</div>
+								<div class="form-check">
+									<input type="radio" class="form-check-input" id="erantzuna3" name="erantzuna" value="'.$erantzunak[2].'" required>
+									<label for="erantzuna3" class="form-check-label">'.$erantzunak[2].'</label>
+								</div>
+								<div class="form-check">
+									<input type="radio" class="form-check-input" id="erantzuna4" name="erantzuna" value="'.$erantzunak[3].'" required>
+									<label for="erantzuna4" class="form-check-label">'.$erantzunak[3].'</label>
 								<br>
 								<input class="btn btn-success" type="submit" id="erantzun" value="Erantzun">
 								<input class="btn btn-warning" type="button" id="aldatu" value="Aldatu galdera">
 								<input class="btn btn-danger" type="button" id="amaitu" value="Amaitu">
 							</form>';
 					}
-					echo "Galderak bukatu dira";
+					echo "<br>Galderak bukatu dira";
 					mysqli_free_result($emaitza);
 					mysqli_close($esteka);
 				}

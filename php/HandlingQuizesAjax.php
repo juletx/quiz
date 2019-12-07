@@ -28,42 +28,50 @@
 						<h2>Galdera gehitu</h2>
 					</legend>
 					<label for="eposta">Ehuko eposta(*):</label>
-					<input type="text" id="eposta" name="eposta" value="<?php echo $_SESSION['eposta']?>" readonly>
-					<br><br>
+					<input type="text" class="form-control" id="eposta" name="eposta"
+						value="<?php echo $_SESSION['eposta']?>" readonly>
+					<br>
 					<label for="galdera">Galdera(*):</label>
-					<input type="text" id="galdera" name="galdera">
-					<br><br>
+					<input type="text" class="form-control" id="galdera" name="galdera">
+					<br>
 					<label for="erantzuna">Erantzun zuzena(*):</label>
-					<input type="text" id="erantzuna" name="erantzuna">
-					<br><br>
+					<input type="text" class="form-control" id="erantzuna" name="erantzuna">
+					<br>
 					<label for="okerra1">Erantzun okerra 1(*):</label>
-					<input type="text" id="okerra1" name="okerra1">
-					<br><br>
+					<input type="text" class="form-control" id="okerra1" name="okerra1">
+					<br>
 					<label for="okerra2">Erantzun okerra 2(*):</label>
-					<input type="text" id="okerra2" name="okerra2">
-					<br><br>
+					<input type="text" class="form-control" id="okerra2" name="okerra2">
+					<br>
 					<label for="okerra3">Erantzun okerra 3(*):</label>
-					<input type="text" id="okerra3" name="okerra3">
-					<br><br>
+					<input type="text" class="form-control" id="okerra3" name="okerra3">
+					<br>
 					<label>Zailtasuna(*):</label>
-					<input type="radio" id="txikia" name="zailtasuna" value="1">
-					<label for="txikia">Txikia</label>
-					<input type="radio" id="ertaina" name="zailtasuna" value="2" checked>
-					<label for="ertaina">Ertaina</label>
-					<input type="radio" id="handia" name="zailtasuna" value="3">
-					<label for="handia">Handia</label>
+					<br>
+					<div class="form-check form-check-inline">
+						<input type="radio" class="form-check-input" id="txikia" name="zailtasuna" value="1">
+						<label for="txikia" class="form-check-label">Txikia</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input type="radio" class="form-check-input" id="ertaina" name="zailtasuna" value="2" checked>
+						<label for="ertaina" class="form-check-label">Ertaina</label>
+					</div>
+					<div class="form-check form-check-inline">
+						<input type="radio" class="form-check-input" id="handia" name="zailtasuna" value="3">
+						<label for="handia" class="form-check-label">Handia</label>
+					</div>
 					<br><br>
 					<label for="gaia">Gaia(*):</label>
-					<input type="text" id="gaia" name="gaia">
-					<br><br>
+					<input type="text" class="form-control" id="gaia" name="gaia">
+					<br>
 					<label for="argazki">Argazkia:</label>
 					<img id="argazki" alt="Aukeratu argazkia" class="argazkia" src="#" />
 					<br><br>
-					<input type="file" id="argazkiaa" name="argazkia" accept="image/*">
-					<br><br>
+					<input type="file" class="form-control-file" id="argazkiaa" name="argazkia" accept="image/*">
+					<br>
 					<input class="btn btn-success" type="button" id="gehitu" value="Galdera gehitu">
 					<input class="btn btn-danger" type="reset" value="Berrezarri">
-					<br><br>
+					<br>
 				</fieldset>
 			</form>
 		</div>
@@ -71,8 +79,9 @@
 		<div id="feedback" style="display:none">
 		</div>
 		<h2>XML Galderak ikusi</h2>
-		<input class="btn btn-success" type="button" id="ikusi" value="Galderak ikusi/ezkutatu" onClick="showQuestions()">
-		<br>
+		<input class="btn btn-success" type="button" id="ikusi" value="Galderak ikusi/ezkutatu"
+			onClick="showQuestions()">
+		<br><br>
 		<div class="table-responsive-sm" id="taula" style="display:none">
 		</div>
 	</section>

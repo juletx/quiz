@@ -16,19 +16,19 @@
 						<h2>Galdera eskuratu</h2>
 					</legend>
 					<label for="identifikadorea">Identifikadorea(*):</label>
-					<input type="number" id="identifikadorea" name="identifikadorea">
-					<br><br>
+					<input type="number" class="form-control" id="identifikadorea" name="identifikadorea" min="1">
+					<br>
 					<input class="btn btn-success" type="submit" value="Galdera eskuratu">
 					<input class="btn btn-danger" type="reset" value="Berrezarri">
 					<br><br>
 					<label for="eposta">Eposta:</label>
-					<input type="text" id="eposta" name="eposta" readonly>
-					<br><br>
+					<input type="text" class="form-control" id="eposta" name="eposta" readonly>
+					<br>
 					<label for="galdera">Galdera:</label>
-					<input type="text" id="galdera" name="galdera" readonly>
-					<br><br>
+					<input type="text" class="form-control" id="galdera" name="galdera" readonly>
+					<br>
 					<label for="erantzuna">Erantzuna:</label>
-					<input type="text" id="erantzuna" name="erantzuna" readonly>
+					<input type="text" class="form-control" id="erantzuna" name="erantzuna" readonly>
 				</fieldset>
 			</form>
 

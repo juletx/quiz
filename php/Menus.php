@@ -53,7 +53,7 @@
 
 			<a class="nav-item nav-link" href="ShowQuestionsWithImage.php">Galderak ikusi</a>
 			<a class="nav-item nav-link" href="HandlingQuizesAjax.php">Galderak kudeatu</a>
-			<a class="nav-item nav-link" href="ClientGetQuestion.php">Galderak eskuratu</a>
+			<a class="nav-item nav-link" href="ClientGetQuestion.php">Galdera eskuratu</a>
 		
 		<?php } ?>
 

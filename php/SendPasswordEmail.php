@@ -10,13 +10,14 @@
 	<?php include '../php/Menus.php' ?>
 	<section class="main" id="s1">
 		<div id="form">
-			<form id="galderenF" name="galderenF" action="#" method="post" enctype="multipart/form-data">
+			<form id="galderenF" name="galderenF" method="post">
 				<fieldset>
 					<legend>
 						<h2>Mezua bidali</h2>
 					</legend>
 					<label for="eposta">Pasahitza berrezartzeko eposta:*</label>
-					<input type="email" id="eposta" name="eposta" required>
+					<input type="email" class="form-control" id="eposta" name="eposta" required>
+					<br>
 					<input class="btn btn-success" type="submit" id="submit" value="Bidali">
 					<input class="btn btn-danger" type="reset" value="Berrezarri">
 				</fieldset>

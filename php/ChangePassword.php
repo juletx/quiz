@@ -4,7 +4,7 @@
 
 <head>
 	<?php include '../html/Head.html'?>
-    <script src="../js/VerifyPassAjax.js"></script>
+	<script src="../js/VerifyChangePassAjax.js"></script>
 </head>
 
 <body>
@@ -16,20 +16,21 @@
 					<legend>
 						<h2>Aldatu pasahitza</h2>
 					</legend>
-					<label for="eposta">Pasahitza berrezartzeko eposta:*</label>
-					<input type="email" id="eposta" name="eposta" value="<?php echo $_SESSION['eposta2']?>" readonly>
-					<br><br>
-                    <label for="pasahitza">Pasahitza(*):</label>
-					<input type="password" id="pasahitza" name="pasahitza" required>
+					<label for="eposta">Pasahitza berrezartzeko eposta:</label>
+					<input type="email" class="form-control" id="eposta" name="eposta"
+						value="<?php echo $_SESSION['eposta2']?>" readonly>
+					<br>
+					<label for="pasahitza">Pasahitza(*):</label>
+					<input type="password" class="form-control" id="pasahitza" name="pasahitza" required>
 					<span id="baliozkoa"></span>
-					<br><br>
+					<br>
 					<label for="pasahitza2">Pasahitza errepikatu(*):</label>
-					<input type="password" id="pasahitza2" name="pasahitza2" required>
-					<br><br>
-                    <label for="kodea">Sartu ezazu kodea(*):</label>
-                    <input type="number" id="kodea" name="kodea" required>
-                    <br><br>
-                    <input class="btn btn-success" type="submit" id="submit" value="Bidali" disabled>
+					<input type="password" class="form-control" id="pasahitza2" name="pasahitza2" required>
+					<br>
+					<label for="kodea">Sartu ezazu kodea(*):</label>
+					<input type="number" class="form-control" id="kodea" name="kodea" required>
+					<br>
+					<input class="btn btn-success" type="submit" id="submit" value="Bidali" disabled>
 					<input class="btn btn-danger" type="reset" value="Berrezarri">
 				</fieldset>
 			</form>

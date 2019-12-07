@@ -117,6 +117,10 @@ div#erabiltzaileKop {
 	border: 3px solid #999;
 }
 
+div#jolastu {
+	display: inline-block;
+}
+
 figure.credits-image {
 	display: inline-block;
 }

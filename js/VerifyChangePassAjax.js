@@ -4,17 +4,16 @@ $(document).ready(function () {
 		$.get('../php/ClientVerifyPass.php', { 'pasahitza': pasahitza }, function (d) {
 			if (d === "Pasahitz balioduna") {
 				$("#baliozkoa").css('color', 'green');
-					$("#submit").prop('disabled', false);
+				$("#submit").prop('disabled', false);
 			} else {
 				$("#baliozkoa").css('color', 'red');
-                $("#submit").prop('disabled', true);
-            }
+				$("#submit").prop('disabled', true);
+			}
 			$("#baliozkoa").html(d);
 		});
 	});
 
-	$("input[type='reset']").click(function() {
+	$("input[type='reset']").click(function () {
 		$('#baliozkoa').text("");
-		$('#matrikulatuta').text("");
 	});
 });
