@@ -16,9 +16,9 @@
 	<?php include '../php/Menus.php'?>
 	<section class="main" id="s1">
 		<h2>Galderak kudeatu</h2>
-		<div id="erabiltzaileKop">
+		<div id="erabiltzaileKop" class="rounded border-dark">
 		</div>
-		<div id="galderaKop">
+		<div id="galderaKop" class="rounded border-dark">
 		</div>
 		<br>
 		<div id="form">

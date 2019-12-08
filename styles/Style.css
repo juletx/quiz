@@ -110,11 +110,13 @@ div#feedback {
 div#galderaKop {
 	display: inline-block;
 	border: 3px solid #999;
+    padding: 10px;
 }
 
 div#erabiltzaileKop {
 	display: inline-block;
 	border: 3px solid #999;
+    padding: 10px;
 }
 
 div#jolastu {
