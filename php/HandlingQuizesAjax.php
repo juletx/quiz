@@ -95,7 +95,7 @@
         <br>
         <div id="feedback" style="display:none" class="rounded border-dark">
         </div>
-        <h2>XML Galderak ikusi</h2>
+        <h2>Galderak ikusi XML</h2>
         <input class="btn btn-success" type="button" id="ikusi" value="Galderak ikusi/ezkutatu"
             onClick="showQuestions()">
         <br><br>

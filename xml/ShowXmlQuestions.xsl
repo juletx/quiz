@@ -19,7 +19,7 @@
 								<th>GALDERA</th>
 								<th>ERANTZUNA</th>
 								<th>ERANTZUN OKERRAK</th>
-								<!--th>ZAILTASUNA</th-->
+								<th>ZAILTASUNA</th>
 								<th>GAIA</th>
 							</tr>
 						</thead>
@@ -40,9 +40,9 @@
 											<xsl:value-of select="."/><br/>
 										</xsl:for-each>
 									</td>
-									<!--td>
+									<td>
 										<xsl:value-of select="@difficulty"/>
-									</td-->
+									</td>
 									<td>
 										<xsl:value-of select="@subject"/>
 									</td>

@@ -18,25 +18,25 @@
 						<div class="form-group col-sm-6">
 							<label for="gaia">Nicka:</label>
 							<input type="text" class="form-control" id="nick" name="nick"
-								value="<?php if (isset($_SESSION['eposta'])) echo $_SESSION['eposta']?>" required>
+								value="<?php if (isset($_SESSION['nicka'])) echo $_SESSION['nicka']?>" required>
 						</div>
 						<div class="form-group col-sm-6">
 							<label for="gaia">Gaia:</label>
-							<select class="form-control" id="gaia" name="gaia">
+							<select class="form-control" id="gaia" name="gaia" required>
 								<?php
-							include '../php/DbConfig.php';
-							$esteka = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db) or die("Errorea datu-baseko konexioan");
+								include '../php/DbConfig.php';
+								$esteka = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db) or die("Errorea datu-baseko konexioan");
 
-							$sql = "SELECT DISTINCT gaia FROM questions";
-							$emaitza = mysqli_query($esteka, $sql) or die("Errorea datu-baseko kontsultan");
-							
-							while ($row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)) {
-								echo '<option value="'.$row['gaia'].'">'.$row['gaia'].'</option>';
-							}
+								$sql = "SELECT DISTINCT gaia FROM questions";
+								$emaitza = mysqli_query($esteka, $sql) or die("Errorea datu-baseko kontsultan");
+								
+								while ($row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)) {
+									echo '<option value="'.$row['gaia'].'">'.$row['gaia'].'</option>';
+								}
 
-							mysqli_free_result($emaitza);
-							mysqli_close($esteka);
-							?>
+								mysqli_free_result($emaitza);
+								mysqli_close($esteka);
+								?>
 							</select>
 						</div>
 						<div class="col text-center">

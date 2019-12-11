@@ -11,7 +11,7 @@
 	<?php include '../php/Menus.php' ?>
 	<section class="main" id="s1">
 		<div>
-			<h2>Kredituak</h2>
+			<h1>Kredituak</h1>
 
 			<h4><b>Deiturak:</b> Julen Etxaniz eta Aitor Zubillaga</h4>
 			<h4><b>Gradua:</b> Ingeniaritza Informatikoa</h4>

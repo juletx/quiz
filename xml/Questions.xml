@@ -1,43 +1,4 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="../xml/ShowXmlQuestions.xsl"?>
 <assessmentItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="Questions.xsd">
-	<assessmentItem author="rosa.arruabarrena@ehu.eus" subject="Mikologia">
-		<itemBody>
-			<p>Zein Amanita da jangarria?</p>
-		</itemBody>
-		<correctResponse>
-			<value>Caesarea</value>
-		</correctResponse>
-		<incorrectResponses>
-			<value>Phalloides</value>
-			<value>Muscaria</value>
-			<value>Virosa</value>
-		</incorrectResponses>
-	</assessmentItem>
-	<assessmentItem author="vadillo@ehu.es" subject="Mikologia">
-		<itemBody>
-			<p>Tripakiek zer dute kapela azpian?</p>
-		</itemBody>
-		<correctResponse>
-			<value>Eztenak</value>
-		</correctResponse>
-		<incorrectResponses>
-			<value>Filamenduak</value>
-			<value>Himenioa</value>
-			<value>Hodiak</value>
-		</incorrectResponses>
-	</assessmentItem>
-	<assessmentItem author="mafalda001@ikasle.ehu.eus" subject="Mikologia">
-		<itemBody>
-			<p>Eranztuna du</p>
-		</itemBody>
-		<correctResponse>
-			<value>Galanpernak</value>
-		</correctResponse>
-		<incorrectResponses>
-			<value>Gibel urdinak</value>
-			<value>Esnegorriak</value>
-			<value>Errotariak</value>
-		</incorrectResponses>
-	</assessmentItem>
-<assessmentItem author="jetxaniz007@ikasle.ehu.eus" subject="Informatika"><itemBody><p>Non gordetzen dira cookie-ak?</p></itemBody><correctResponse><value>adwdda</value></correctResponse><incorrectResponses><value>adwdawda</value><value>adwadwd</value><value>awdadw</value></incorrectResponses></assessmentItem><assessmentItem author="jetxaniz007@ikasle.ehu.eus" subject="Informatika"><itemBody><p>Galdera bat</p></itemBody><correctResponse><value>zuzena</value></correctResponse><incorrectResponses><value>okerra1</value><value>okerra2</value><value>okerra3</value></incorrectResponses></assessmentItem></assessmentItems>
+</assessmentItems>

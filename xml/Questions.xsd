@@ -29,6 +29,7 @@
             </xs:sequence>
             <xs:attribute type="xs:string" name="author" use="required"/>
             <xs:attribute type="xs:string" name="subject" use="required"/>
+			<xs:attribute type="xs:string" name="difficulty" use="required"/>
           </xs:complexType>
         </xs:element>
       </xs:sequence>

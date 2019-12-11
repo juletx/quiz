@@ -1,17 +1,5 @@
 @charset "utf-8";
 
-#page-wrap {
-	margin: 2% auto;
-	color: white;
-}
-
-#page-wrap>.main {
-	border: 1px solid #999;
-	padding: 1%;
-	margin-bottom: 1px;
-	color: black;
-}
-
 section.main {
 	position: relative;
 	width: 100%;

@@ -9,19 +9,14 @@ function addQuestion() {
 		processData: false,
 		dataType: 'HTML',
 		success: function (data) {
-			var feedback = $(data).find("div");
-			$("#feedback").html(feedback);
-			if ($(feedback).find("p").length !== 0) {
-				$("#feedback").show();
-			}
+			$("#feedback").html(data);
 			if (!$("#taula").is(":hidden")) {
 				$("#taula").hide();
 			}
 			showQuestions();
 		},
-		error: function (data) {
-			$("#feedback").html("Ezin izan da galdera sartu.");
-			$("#feedback").show();
+		error: function () {
+			alert("Errorea zerbitzarira konektatzerakoan");
 		}
 	});
 }
