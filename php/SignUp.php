@@ -16,39 +16,51 @@
 			<form id="galderenF" name="galderenF" method="post" enctype="multipart/form-data">
 				<fieldset>
 					<legend>
-						<h2>Erregistratu</h2>
+						<h1>Erregistratu</h1>
 					</legend>
-					<label for="eposta">Ehuko eposta(*):</label>
-					<input type="email" class="form-control" id="eposta" name="eposta"
-						pattern="([a-z]{3,}[0-9]{3}@ikasle\.ehu\.eu?s)|([a-z]+\.?[a-z]{2,}@ehu\.eu?s)" required>
-					<div id="matrikulatuta"></div>
-					<label>Erabiltzaile mota(*):</label>
-					<br>
-					<div class="form-check form-check-inline">
-						<input type="radio" class="form-check-input" id="ikaslea" name="mota" value="ikaslea" checked>
-						<label for="ikaslea" class="form-check-label">Ikaslea</label>
+					<div class="form-group">
+						<label for="eposta">Ehuko eposta(*):</label>
+						<input type="email" class="form-control" id="eposta" name="eposta"
+							pattern="([a-z]{3,}[0-9]{3}@ikasle\.ehu\.eu?s)|([a-z]+\.?[a-z]{2,}@ehu\.eu?s)" required>
+						<div id="matrikulatuta"></div>
 					</div>
-					<div class="form-check form-check-inline">
-						<input type="radio" class="form-check-input" id="irakaslea" name="mota" value="irakaslea">
-						<label for="irakaslea" class="form-check-label">Irakaslea</label>
+					<div class="form-group">
+						<label for="pasahitza">Pasahitza(*):</label>
+						<input type="password" class="form-control" id="pasahitza" name="pasahitza" required>
+						<div id="baliozkoa"></div>
 					</div>
-					<br>
-					<label for="deiturak">Deiturak(*):</label>
-					<input type="text" class="form-control" id="deiturak" name="deiturak"
-						pattern="[A-Za-z]{2,}( [A-Za-z]{2,})+" required>
-					<label for="pasahitza">Pasahitza(*):</label>
-					<input type="password" class="form-control" id="pasahitza" name="pasahitza" required>
-					<div id="baliozkoa"></div>
-					<label for="pasahitza2">Pasahitza errepikatu(*):</label>
-					<input type="password" class="form-control" id="pasahitza2" name="pasahitza2" required>
-					<br>
+					<div class="form-group">
+						<label for="pasahitza2">Pasahitza errepikatu(*):</label>
+						<input type="password" class="form-control" id="pasahitza2" name="pasahitza2" required>
+					</div>
+					<div class="form-group">
+						<label>Erabiltzaile mota(*):</label>
+						<br>
+						<div class="form-check form-check-inline">
+							<input type="radio" class="form-check-input" id="ikaslea" name="mota" value="ikaslea"
+								checked>
+							<label for="ikaslea" class="form-check-label">Ikaslea</label>
+						</div>
+						<div class="form-check form-check-inline">
+							<input type="radio" class="form-check-input" id="irakaslea" name="mota" value="irakaslea">
+							<label for="irakaslea" class="form-check-label">Irakaslea</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="deiturak">Deiturak(*):</label>
+						<input type="text" class="form-control" id="deiturak" name="deiturak"
+							pattern="[A-Za-z]{2,}( [A-Za-z]{2,})+" required>
+					</div>
 					<label for="argazki">Argazkia:</label>
 					<img id="argazki" alt="Aukeratu argazkia" class="argazkia" src="#" />
 					<br><br>
+					<div class="form-group">
 					<input type="file" class="form-control-file" id="argazkiaa" name="argazkia" accept="image/*">
-					<br>
-					<input class="btn btn-success" type="submit" id="submit" value="Erregistratu" disabled="true">
-					<input class="btn btn-danger" type="reset" value="Berrezarri">
+					</div>
+					<div class="form-group">
+						<input class="btn btn-success" type="submit" id="submit" value="Erregistratu" disabled="true">
+						<input class="btn btn-danger" type="reset" value="Berrezarri">
+					</div>
 				</fieldset>
 			</form>
 

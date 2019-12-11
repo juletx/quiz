@@ -13,13 +13,16 @@
 			<form id="galderenF" name="galderenF" method="post">
 				<fieldset>
 					<legend>
-						<h2>Mezua bidali</h2>
+						<h1>Mezua bidali</h1>
 					</legend>
-					<label for="eposta">Pasahitza berrezartzeko eposta:*</label>
-					<input type="email" class="form-control" id="eposta" name="eposta" required>
-					<br>
-					<input class="btn btn-success" type="submit" id="submit" value="Bidali">
-					<input class="btn btn-danger" type="reset" value="Berrezarri">
+					<div class="form-group">
+						<label for="eposta">Berrezarpen eposta:*</label>
+						<input type="email" class="form-control" id="eposta" name="eposta" required>
+					</div>
+					<div class="form-group">
+						<input class="btn btn-success" type="submit" id="submit" value="Bidali">
+						<input class="btn btn-danger" type="reset" value="Berrezarri">
+					</div>
 				</fieldset>
 			</form>
 
@@ -63,7 +66,7 @@
                         <h3>Orrialde honetara joan:</h3>
                         <h2><a href="http://wst03.000webhostapp.com/wst03/php/ChangePassword.php?eposta='.$eposta.'" >Hemen</a></h2>
                         <h2>Berrezarpen kodea:</h2>
-                        <h2>"'.$kodea.'"</h2>
+                        <h2>'.$kodea.'</h2>
                         </body>
                         </html>
                         ';

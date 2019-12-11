@@ -3,32 +3,38 @@
 <html>
 
 <head>
-    <?php include '../html/Head.html'?>
+	<?php include '../html/Head.html'?>
 </head>
 
 <body>
-    <?php include '../php/Menus.php' ?>
-    <section class="main" id="s1">
-        <div id="form">
+	<?php include '../php/Menus.php' ?>
+	<section class="main" id="s1">
+		<div id="form">
 			<form id="galderenF" name="galderenF" method="post">
 				<fieldset>
 					<legend>
-						<h2>Galdera eskuratu</h2>
+						<h1>Galdera eskuratu</h1>
 					</legend>
-					<label for="identifikadorea">Identifikadorea(*):</label>
-					<input type="number" class="form-control" id="identifikadorea" name="identifikadorea" min="1">
-					<br>
-					<input class="btn btn-success" type="submit" value="Galdera eskuratu">
-					<input class="btn btn-danger" type="reset" value="Berrezarri">
-					<br><br>
-					<label for="eposta">Eposta:</label>
-					<input type="text" class="form-control" id="eposta" name="eposta" readonly>
-					<br>
-					<label for="galdera">Galdera:</label>
-					<input type="text" class="form-control" id="galdera" name="galdera" readonly>
-					<br>
-					<label for="erantzuna">Erantzuna:</label>
-					<input type="text" class="form-control" id="erantzuna" name="erantzuna" readonly>
+					<div class="form-group">
+						<label for="identifikadorea">Identifikadorea(*):</label>
+						<input type="number" class="form-control" id="identifikadorea" name="identifikadorea" min="1">
+					</div>
+					<div class="form-group">
+						<input class="btn btn-success" type="submit" value="Galdera eskuratu">
+						<input class="btn btn-danger" type="reset" value="Berrezarri">
+					</div>
+					<div class="form-group">
+						<label for="eposta">Eposta:</label>
+						<input type="text" class="form-control" id="eposta" name="eposta" readonly>
+					</div>
+					<div class="form-group">
+						<label for="galdera">Galdera:</label>
+						<input type="text" class="form-control" id="galdera" name="galdera" readonly>
+					</div>
+					<div class="form-group">
+						<label for="erantzuna">Erantzuna:</label>
+						<input type="text" class="form-control" id="erantzuna" name="erantzuna" readonly>
+					</div>
 				</fieldset>
 			</form>
 
@@ -55,8 +61,8 @@
 			}
 			?>
 		</div>
-    </section>
-    <?php include '../html/Footer.html' ?>
+	</section>
+	<?php include '../html/Footer.html' ?>
 </body>
 
 </html>

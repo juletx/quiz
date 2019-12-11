@@ -14,24 +14,30 @@
 			<form id="galderenF" name="galderenF" action="#" method="post" enctype="multipart/form-data">
 				<fieldset>
 					<legend>
-						<h2>Aldatu pasahitza</h2>
+						<h1>Aldatu pasahitza</h1>
 					</legend>
-					<label for="eposta">Pasahitza berrezartzeko eposta:</label>
-					<input type="email" class="form-control" id="eposta" name="eposta"
-						value="<?php echo $_SESSION['eposta2']?>" readonly>
-					<br>
-					<label for="pasahitza">Pasahitza(*):</label>
-					<input type="password" class="form-control" id="pasahitza" name="pasahitza" required>
-					<span id="baliozkoa"></span>
-					<br>
-					<label for="pasahitza2">Pasahitza errepikatu(*):</label>
-					<input type="password" class="form-control" id="pasahitza2" name="pasahitza2" required>
-					<br>
-					<label for="kodea">Sartu ezazu kodea(*):</label>
-					<input type="number" class="form-control" id="kodea" name="kodea" required>
-					<br>
-					<input class="btn btn-success" type="submit" id="submit" value="Bidali" disabled>
-					<input class="btn btn-danger" type="reset" value="Berrezarri">
+					<div class="form-group">
+						<label for="eposta">Berrezarpen eposta:</label>
+						<input type="email" class="form-control" id="eposta" name="eposta"
+							value="<?php echo $_SESSION['eposta2']?>" readonly>
+					</div>
+					<div class="form-group">
+						<label for="pasahitza">Pasahitza(*):</label>
+						<input type="password" class="form-control" id="pasahitza" name="pasahitza" required>
+						<div id="baliozkoa"></div>
+					</div>
+					<div class="form-group">
+						<label for="pasahitza2">Pasahitza errepikatu(*):</label>
+						<input type="password" class="form-control" id="pasahitza2" name="pasahitza2" required>
+					</div>
+					<div class="form-group">
+						<label for="kodea">Berrezarpen kodea(*):</label>
+						<input type="number" class="form-control" id="kodea" name="kodea" required>
+					</div>
+					<div class="form-group">
+						<input class="btn btn-success" type="submit" id="submit" value="Aldatu pasahitza" disabled>
+						<input class="btn btn-danger" type="reset" value="Berrezarri">
+					</div>
 				</fieldset>
 			</form>
 

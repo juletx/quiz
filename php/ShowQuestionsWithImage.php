@@ -9,7 +9,7 @@
 <body>
     <?php include '../php/Menus.php' ?>
     <section class="main" id="s1">
-		<h2>Galderak ikusi</h2>
+		<h1>Galderak ikusi</h1>
 		<div class="table-responsive-lg" id="taula">
             <?php
             include '../php/DbConfig.php';

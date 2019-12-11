@@ -13,7 +13,7 @@ $(document).ready(function () {
 					nireak++;
 				}
 			});
-			$("#galderaKop").html("<h3>Galdera kopurua</h3><p>Zure galderak / Galdera totalak: " + nireak + " / " + totalak + "</p>");
+			$("#galderaKop").html("<h4>Galdera kopurua: " + nireak + " / " + totalak + "</h4>");
 		});
 	}
 });

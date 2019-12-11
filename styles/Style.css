@@ -1,14 +1,5 @@
 @charset "utf-8";
 
-/* {
-    margin: 0;
-    padding: 0;
-}*/
-
-body {
-	font: 16px Georgia, serif;
-}
-
 #page-wrap {
 	margin: 2% auto;
 	color: white;
@@ -34,29 +25,12 @@ section>div {
 	padding: 5px;
 }
 
-/*header,
-section {
-    background: #eee;
-    text-align: center;
-}*/
-
 footer {
 	background: rgb(25, 25, 25);
 	text-align: center;
 	position: relative;
 	bottom: 0;
 	width: 100%;
-}
-
-/*nav span {
-    margin: 0px 10px 0px 0px;
-    width: 100%;
-    display: inline-block;
-}*/
-
-#ErrorMsgs {
-	color: #f61;
-	font-size: smaller;
 }
 
 table.table-bordered {
