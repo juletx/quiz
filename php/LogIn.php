@@ -3,12 +3,11 @@
     $loginURL= $client->createAuthUrl();
 ?>
 <form class="form-inline" id="login" name="login" method="post">
-	<input class="form-control mr-sm-2" type="email" id="eposta_login" name="eposta_login"
+	<input class="form-control mr-sm-2 my-1 my-sm-0" type="email" id="eposta_login" name="eposta_login"
 		pattern="([a-z]{3,}[0-9]{3}@ikasle\.ehu\.eu?s)|([a-z]+\.?[a-z]{2,}@ehu.eu?s)" placeholder="Ehuko eposta" title="Epostak Ehuko ikasle edo irakasle batena izan behar du" required>
-	<input class="form-control mr-sm-2" type="password" id="pasahitza_login" name="pasahitza_login" placeholder="Pasahitza" required>
-	<input class="btn btn-success" type="submit" value="Login">
-    &nbsp;&nbsp;
-    <button type="button" class="btn btn-danger" onclick="window.location = '<?php echo $loginURL ?>';"><a class="fa fa-google"></a></button>
+	<input class="form-control mr-sm-2 my-1 my-sm-0" type="password" id="pasahitza_login" name="pasahitza_login" placeholder="Pasahitza" required>
+	<input class="btn btn-success mr-2 my-1 my-sm-0" type="submit" value="Login">
+    <button type="button" class="btn btn-danger my-1 my-sm-0" onclick="window.location = '<?php echo $loginURL ?>';"><a class="fa fa-google"></a></button>
 </form>
 
 <?php

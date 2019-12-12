@@ -8,7 +8,7 @@
 
 <body>
 	<?php include '../php/Menus.php' ?>
-	<section class="main" id="s1">
+	<main class="container-fluid py-3 flex-fill">
 		<div id="form">
 			<form id="galderenF" name="galderenF" method="post">
 				<fieldset>
@@ -79,7 +79,7 @@
                 }
             ?>
 		</div>
-	</section>
+	</main>
 	<?php include '../html/Footer.html' ?>
 </body>
 

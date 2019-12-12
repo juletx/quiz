@@ -8,7 +8,7 @@
 
 <body>
     <?php include '../php/Menus.php' ?>
-    <section class="main" id="s1">
+    <main class="container-fluid py-3 flex-fill">
         <div>
 			<?php
 				session_destroy();
@@ -16,7 +16,7 @@
                 // echo "<script>if (confirm('Ziur al zaude?')) {alert('Gero arte ".$_GET['eposta']."'); window.location.href = '../php/Layout.php'} else {history.go(-1)}</script>".PHP_EOL; 
             ?>
         </div>
-    </section>
+	</main>
     <?php include '../html/Footer.html' ?>
 </body>
 

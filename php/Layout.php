@@ -8,7 +8,7 @@
 
 <body>
 	<?php include '../php/Menus.php' ?>
-	<section class="main" id="s1">
+	<main class="container-fluid py-3 flex-fill">
 		<h1>Quiz: galderen jokoa</h1>
 		<br>
 		<h2>10 jokalari onenak</h2>
@@ -34,7 +34,7 @@
 				<tbody>
 			</table>
 		</div>
-	</section>
+	</main>
 	<?php include '../html/Footer.html' ?>
 </body>
 

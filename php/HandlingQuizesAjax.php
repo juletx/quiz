@@ -14,7 +14,7 @@
 
 <body>
     <?php include '../php/Menus.php'?>
-    <section class="main" id="s1">
+    <main class="container-fluid py-3 flex-fill">
         <h1>Galderak kudeatu</h1>
         <div id="erabiltzaileKop" class="rounded border-dark">
         </div>
@@ -101,7 +101,7 @@
         <br><br>
         <div class="table-responsive-sm" id="taula" style="display:none">
         </div>
-    </section>
+	</main>
     <?php include '../html/Footer.html' ?>
 </body>
 

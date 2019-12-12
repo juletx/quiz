@@ -1,36 +1,23 @@
 @charset "utf-8";
 
-section.main {
-	position: relative;
-	width: 100%;
-	display: inline-block;
-	text-align: center;
-	margin-top: 100px;
-	margin-bottom: 100px;
+body,
+.wrapper {
+	min-height: 100vh;
 }
 
-section>div {
-	padding: 5px;
-}
-
+nav,
 footer {
-	background: rgb(25, 25, 25);
+	background-color: rgb(25, 25, 25);
+}
+
+main {
 	text-align: center;
-	position: relative;
-	bottom: 0;
-	width: 100%;
 }
 
-table.table-bordered {
-	border: 2px solid black;
-}
-
-table.table-bordered>thead>tr>th {
-	border: 2px solid black;
-}
-
+table.table-bordered,
+table.table-bordered>thead>tr>th,
 table.table-bordered>tbody>tr>td {
-	border: 2px solid black;
+	border: 3px solid rgb(33, 37, 41);
 	vertical-align: middle;
 }
 
@@ -44,41 +31,37 @@ img.argazkiaLogin {
 	max-width: 50px;
 }
 
-fieldset {
-	padding: 10px;
-	border: 3px solid #999;
+form>fieldset {
+	padding: 15px;
+	border: 3px solid #343a40;
 }
 
-section {
-	max-height: 100%;
-	max-width: 100%;
-	overflow: auto;
+form>fieldset>legend {
+	text-align: center;
 }
 
 div#form {
 	text-align: left;
 	display: inline-block;
+	margin: 10px;
 }
 
 div#taula {
 	display: inline-block;
 }
 
-div#feedback {
-	display: inline-block;
-	border: 3px solid #999;
-}
-
 div#galderaKop {
 	display: inline-block;
 	border: 3px solid #999;
-    padding: 10px;
+	padding: 10px;
+	margin: 10px;
 }
 
 div#erabiltzaileKop {
 	display: inline-block;
 	border: 3px solid #999;
-    padding: 10px;
+	padding: 10px;
+	margin: 10px;
 }
 
 div#jolastu {
@@ -87,12 +70,4 @@ div#jolastu {
 
 figure.credits-image {
 	display: inline-block;
-}
-
-nav.navbar {
-	z-index: 1;
-	background-color: rgb(25, 25, 25);
-	position: fixed;
-	width: 100%;
-	top: 0;
 }

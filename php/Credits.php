@@ -9,7 +9,7 @@
 
 <body>
 	<?php include '../php/Menus.php' ?>
-	<section class="main" id="s1">
+	<main class="container-fluid py-3 flex-fill">
 		<div>
 			<h1>Kredituak</h1>
 
@@ -63,7 +63,7 @@
 				<tbody>
 			</table>
 		</div>
-	</section>
+	</main>
 	<?php include '../html/Footer.html' ?>
 </body>
 
