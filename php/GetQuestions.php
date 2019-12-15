@@ -4,7 +4,7 @@
 		$esteka = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db) or die("Errorea datu-baseko konexioan");
 
 		$gaia = $_GET['gaia'];
-		$sql = "SELECT * FROM questions WHERE gaia='$gaia' ORDER BY RAND()";
+        $sql = "SELECT * FROM questions WHERE gaia='$gaia' ORDER BY RAND()";
 		$emaitza = mysqli_query($esteka, $sql) or die("Errorea datu-baseko kontsultan");
 		
 		while ($row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)) {

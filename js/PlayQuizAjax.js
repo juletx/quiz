@@ -1,11 +1,17 @@
 $(document).ready(function () {
 	$("#jolastu").click(function () {
-		$("#jolastu").prop('disabled', false);
-		$.ajax({
+        var form = $("#galdera_gaia").get(0);
+        $.ajax({
 			url: "GetQuestions.php",
-			data: $('#gaia').serialize(),
+            type: 'POST',
+		    data: new FormData(form),
+		    mimeType: 'multipart/form-data',
+		    contentType: false,
+		    processData: false,
+		    dataType: 'HTML',
 			success: function (d) {
-			}
+                $("#form").hide();
+            }
 		});
 	});
 
@@ -19,7 +25,11 @@ $(document).ready(function () {
 	});
 
 	$("#aldatu").click(function () {
-	});
+        if( $('#selector').length )
+        {
+            
+        }
+    });
 
 	$("#amaitu").click(function () {
 		$.ajax({

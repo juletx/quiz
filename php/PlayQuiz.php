@@ -5,20 +5,24 @@
 <head>
 	<?php include '../html/Head.html'?>
 	<script src="../js/PlayQuizAjax.js"></script>
+    <script src="../js/ChangeQuestion.js"></script>
 </head>
 
 <body>
 	<?php include '../php/Menus.php' ?>
 	<main class="container-fluid py-3 flex-fill">
-		<div id="jolastu">
-			<h1>Jolastu</h1>
+		<div id="jolastua">
 			<div id="form">
 				<form id="galdera_gaia">
-					<div class="form-row">
+					<fieldset <?php if (isset($_GET['nick']) && isset($_GET['gaia'])) echo 'disabled'?>>
+                    <legend>
+                        <h1>Jolastu</h1>
+                    </legend>
+                    <div class="form-row">
 						<div class="form-group col-sm-6">
-							<label for="gaia">Nicka:</label>
+							<label for="nick">Nicka:</label>
 							<input type="text" class="form-control" id="nick" name="nick"
-								value="<?php if (isset($_SESSION['nicka'])) echo $_SESSION['nicka']?>" required>
+								value="<?php if (isset($_SESSION['nick'])) echo $_SESSION['nick']?>" required>
 						</div>
 						<div class="form-group col-sm-6">
 							<label for="gaia">Gaia:</label>
@@ -31,7 +35,16 @@
 								$emaitza = mysqli_query($esteka, $sql) or die("Errorea datu-baseko kontsultan");
 								
 								while ($row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)) {
-									echo '<option value="'.$row['gaia'].'">'.$row['gaia'].'</option>';
+                                    if (isset($_GET['gaia'])){
+                                        if ($row['gaia']=$_GET['gaia']){
+                                            echo '<option value="'.$row['gaia'].'" selected>'.$row['gaia'].'</option>';
+                                        }else{
+                                            echo '<option value="'.$row['gaia'].'">'.$row['gaia'].'</option>';
+                                        }
+                                    }else{
+                                        echo '<option value="'.$row['gaia'].'">'.$row['gaia'].'</option>';
+                                    }
+                                    
 								}
 
 								mysqli_free_result($emaitza);
@@ -51,10 +64,13 @@
 					$esteka = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db) or die("Errorea datu-baseko konexioan");
 
 					$gaia = $_GET['gaia'];
-					$sql = "SELECT * FROM questions WHERE gaia='$gaia' ORDER BY RAND()";
+                    $_SESSION['nick']=$_GET['nick'];
+                    $sql = "SELECT * FROM questions WHERE gaia='$gaia' ORDER BY RAND()";
 					$emaitza = mysqli_query($esteka, $sql) or die("Errorea datu-baseko kontsultan");
-					
-					while ($row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)) {
+                    $galderaKop=mysqli_num_rows($emaitza);
+                    $count =-1;
+                    echo'<div id="galderak">';
+                    while ($row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)) {
 						$erantzunak = array();
 						array_push($erantzunak, $row['erantzuna']);
 						array_push($erantzunak, $row['okerra1']);
@@ -62,35 +78,119 @@
 						array_push($erantzunak, $row['okerra3']);
 
 						shuffle($erantzunak);
-
-						echo '<div><form id="galdera">
-								<h4>'.$row['galdera'].'</h4>
-								<img src='.$row['argazkia'].' alt="Argazkia" class="argazkia">
-								<div class="form-group">
-									<div class="form-check">
-										<input type="radio" class="form-check-input" id="erantzuna1" name="erantzuna" value="'.$erantzunak[0].'" required>
-										<label for="erantzuna1" class="form-check-label">'.$erantzunak[0].'</label>
-									</div>
-									<div class="form-check">
-										<input type="radio" class="form-check-input" id="erantzuna2" name="erantzuna" value="'.$erantzunak[1].'" required>
-										<label for="erantzuna2" class="form-check-label">'.$erantzunak[1].'</label>
-									</div>
-									<div class="form-check">
-										<input type="radio" class="form-check-input" id="erantzuna3" name="erantzuna" value="'.$erantzunak[2].'" required>
-										<label for="erantzuna3" class="form-check-label">'.$erantzunak[2].'</label>
-									</div>
-									<div class="form-check">
-										<input type="radio" class="form-check-input" id="erantzuna4" name="erantzuna" value="'.$erantzunak[3].'" required>
-										<label for="erantzuna4" class="form-check-label">'.$erantzunak[3].'</label>
-									</div>
-								</div>
-								<input class="btn btn-success" type="submit" id="erantzun" value="Erantzun">
-								<input class="btn btn-warning" type="button" id="aldatu" value="Aldatu galdera">
-								<input class="btn btn-danger" type="button" id="amaitu" value="Amaitu">
-							</form></div>';
-					}
-					echo "<br>Galderak bukatu dira";
-					mysqli_free_result($emaitza);
+                        $count = $count +1;
+                        if($galderaKop==1){
+                            echo '<div id="galde'.$count.'"><form id="galdera'.$count.'">
+                                        <h4>'.$row['galdera'].'</h4>
+                                        <img src='.$row['argazkia'].' alt="Argazkia" class="argazkia">
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="erantzuna1'.$count.'" name="erantzuna" value="'.$erantzunak[0].'" required>
+                                                <label for="erantzuna1" class="form-check-label">'.$erantzunak[0].'</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="erantzuna2'.$count.'" name="erantzuna" value="'.$erantzunak[1].'" required>
+                                                <label for="erantzuna2" class="form-check-label">'.$erantzunak[1].'</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="erantzuna3'.$count.'" name="erantzuna" value="'.$erantzunak[2].'" required>
+                                                <label for="erantzuna3" class="form-check-label">'.$erantzunak[2].'</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="erantzuna4'.$count.'" name="erantzuna" value="'.$erantzunak[3].'" required>
+                                                <label for="erantzuna4" class="form-check-label">'.$erantzunak[3].'</label>
+                                            </div>
+                                        </div>
+                                        <input class="btn btn-success" type="submit" id="erantzun'.$count.'" value="Erantzun">
+                                        <input class="btn btn-danger" type="button" id="amaitu'.$count.'" value="Amaitu">
+                                    </form></div>';
+                                    echo "<br>Galdera bakarra dago kategoria honetan";
+                        }else{
+                            if($count==0){
+                                echo '<div id="galde'.$count.'"><form id="galdera'.$count.'">
+                                        <h4>'.$row['galdera'].'</h4>
+                                        <img src='.$row['argazkia'].' alt="Argazkia" class="argazkia">
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="erantzuna1'.$count.'" name="erantzuna" value="'.$erantzunak[0].'" required>
+                                                <label for="erantzuna1" class="form-check-label">'.$erantzunak[0].'</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="erantzuna2'.$count.'" name="erantzuna" value="'.$erantzunak[1].'" required>
+                                                <label for="erantzuna2" class="form-check-label">'.$erantzunak[1].'</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="erantzuna3'.$count.'" name="erantzuna" value="'.$erantzunak[2].'" required>
+                                                <label for="erantzuna3" class="form-check-label">'.$erantzunak[2].'</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="erantzuna4'.$count.'" name="erantzuna" value="'.$erantzunak[3].'" required>
+                                                <label for="erantzuna4" class="form-check-label">'.$erantzunak[3].'</label>
+                                            </div>
+                                        </div>
+                                        <input class="btn btn-success" type="submit" id="erantzun'.$count.'" value="Erantzun">
+                                        <input class="btn btn-warning" type="button" id="aldatu'.$count.'" value="Aldatu galdera" onclick="next()">
+                                        <input class="btn btn-danger" type="button" id="amaitu'.$count.'" value="Amaitu">
+                                    </form></div>';
+                            }else if ($galderaKop==$count+1){
+                                echo '<div id="galde'.$count.'" style="display: none;"><form id="galdera'.$count.'">
+                                        <h4>'.$row['galdera'].'</h4>
+                                        <img src='.$row['argazkia'].' alt="Argazkia" class="argazkia">
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="erantzuna1'.$count.'" name="erantzuna" value="'.$erantzunak[0].'" required>
+                                                <label for="erantzuna1" class="form-check-label">'.$erantzunak[0].'</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="erantzuna2'.$count.'" name="erantzuna" value="'.$erantzunak[1].'" required>
+                                                <label for="erantzuna2" class="form-check-label">'.$erantzunak[1].'</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="erantzuna3'.$count.'" name="erantzuna" value="'.$erantzunak[2].'" required>
+                                                <label for="erantzuna3" class="form-check-label">'.$erantzunak[2].'</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="radio" class="form-check-input" id="erantzuna4'.$count.'" name="erantzuna" value="'.$erantzunak[3].'" required>
+                                                <label for="erantzuna4" class="form-check-label">'.$erantzunak[3].'</label>
+                                            </div>
+                                        </div>
+                                        <input class="btn btn-success" type="submit" id="erantzun'.$count.'" value="Erantzun">
+                                        <input class="btn btn-warning" type="button" id="aldatu'.$count.'" value="Aldatu galdera" onclick="next()">
+                                        <input class="btn btn-danger" type="button" id="amaitu'.$count.'" value="Amaitu">
+                                        echo "<br>Galderak bukatu dira";
+                                    </form></div>';   
+                                    
+                            }else{
+                                echo '<div id="galde'.$count.'" style="display: none;"><form id="galdera'.$count.'">
+                                            <h4>'.$row['galdera'].'</h4>
+                                            <img src='.$row['argazkia'].' alt="Argazkia" class="argazkia">
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" id="erantzuna1'.$count.'" name="erantzuna" value="'.$erantzunak[0].'" required>
+                                                    <label for="erantzuna1" class="form-check-label">'.$erantzunak[0].'</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" id="erantzuna2'.$count.'" name="erantzuna" value="'.$erantzunak[1].'" required>
+                                                    <label for="erantzuna2" class="form-check-label">'.$erantzunak[1].'</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" id="erantzuna3'.$count.'" name="erantzuna" value="'.$erantzunak[2].'" required>
+                                                    <label for="erantzuna3" class="form-check-label">'.$erantzunak[2].'</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="radio" class="form-check-input" id="erantzuna4'.$count.'" name="erantzuna" value="'.$erantzunak[3].'" required>
+                                                    <label for="erantzuna4" class="form-check-label">'.$erantzunak[3].'</label>
+                                                </div>
+                                            </div>
+                                            <input class="btn btn-success" type="submit" id="erantzun'.$count.'" value="Erantzun">
+                                            <input class="btn btn-warning" type="button" id="aldatu'.$count.'" value="Aldatu galdera" onclick="next()">
+                                            <input class="btn btn-danger" type="button" id="amaitu'.$count.'" value="Amaitu">
+                                        </form></div>';
+                            }
+                    
+                        }    
+                    }echo'</div>';
+                    mysqli_free_result($emaitza);
 					mysqli_close($esteka);
 				}
 			?>
