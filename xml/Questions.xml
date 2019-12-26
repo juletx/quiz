@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" href="../xml/ShowXmlQuestions.xsl"?>
 <assessmentItems xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="Questions.xsd">
-</assessmentItems>
+<assessmentItem author="jetxaniz007@ikasle.ehu.eus" subject="Informatika" difficulty="Ertaina"><itemBody><p>Non gordetzen dira cookie-ak?</p></itemBody><correctResponse><value>adwdda</value></correctResponse><incorrectResponses><value>adwdawda</value><value>adwadwd</value><value>awdadw</value></incorrectResponses></assessmentItem><assessmentItem author="jetxaniz007@ikasle.ehu.eus" subject="Informatika" difficulty="Ertaina"><itemBody><p>Non gordetzen dira cookie-ak?</p></itemBody><correctResponse><value>adwdda</value></correctResponse><incorrectResponses><value>adwdawda</value><value>adwadwd</value><value>awdadw</value></incorrectResponses></assessmentItem></assessmentItems>

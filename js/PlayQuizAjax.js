@@ -1,41 +1,47 @@
-$(document).ready(function () {
-	$("#jolastu").click(function () {
-        var form = $("#galdera_gaia").get(0);
-        $.ajax({
-			url: "GetQuestions.php",
-            type: 'POST',
-		    data: new FormData(form),
-		    mimeType: 'multipart/form-data',
-		    contentType: false,
-		    processData: false,
-		    dataType: 'HTML',
-			success: function (d) {
-                $("#form").hide();
-            }
-		});
-	});
-
-	$("#erantzun").click(function () {
-		$.ajax({
-			url: "SaveResponse.php",
-			data: $('#galdera').serialize(),
-			success: function (d) {
+function next() {
+	var galde = document.querySelectorAll('#form_galderak>div');
+	for (var i = 0; i < galde.length; i++) {
+		if (galde[i].style.display != 'none') {
+			galde[i].style.display = 'none';
+			if (i == galde.length - 1) {
+				$.ajax({
+					type: "POST",
+					url: "ShowResult.php",
+					data: $('#form_galderak').serialize(),
+					success: function (d) {
+						$("#galderak").hide();
+						$("#emaitza").html(d);
+					}
+				});
+			} else {
+				galde[i + 1].style.display = 'block';
 			}
-		});
+			break;
+		}
+	}
+}
+
+$(document).ready(function () {
+	$(".aldatu").click(function () {
+		next();
 	});
 
-	$("#aldatu").click(function () {
-        if( $('#selector').length )
-        {
-            
-        }
-    });
+	$(".erantzun").click(function () {
+		if ($("input:radio").is(':checked')) {
+			next();
+    	} else {
+			alert('Aukeratu erantzun bat');
+		}
+	});
 
-	$("#amaitu").click(function () {
+	$(".amaitu").click(function () {
 		$.ajax({
+			type: "POST",
 			url: "ShowResult.php",
-			data: $('#galdera').serialize(),
+			data: $('#form_galderak').serialize(),
 			success: function (d) {
+				$("#galderak").hide();
+				$("#emaitza").html(d);
 			}
 		});
 	});

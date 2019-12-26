@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-11-2019 a las 17:45:26
+-- Tiempo de generación: 26-12-2019 a las 22:04:33
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.1.33
 
@@ -44,6 +44,18 @@ CREATE TABLE `questions` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `results`
+--
+
+CREATE TABLE `results` (
+  `nicka` varchar(100) NOT NULL,
+  `zuzenak` int(11) NOT NULL,
+  `okerrak` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `users`
 --
 
@@ -52,7 +64,8 @@ CREATE TABLE `users` (
   `mota` varchar(1000) NOT NULL,
   `deiturak` varchar(1000) NOT NULL,
   `pasahitza` varchar(1000) NOT NULL,
-  `argazkia` varchar(1000) NOT NULL
+  `argazkia` varchar(1000) NOT NULL,
+  `blokeatuta` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -64,6 +77,12 @@ CREATE TABLE `users` (
 --
 ALTER TABLE `questions`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `results`
+--
+ALTER TABLE `results`
+  ADD PRIMARY KEY (`nicka`);
 
 --
 -- Indices de la tabla `users`

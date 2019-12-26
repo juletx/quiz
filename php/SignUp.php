@@ -55,7 +55,7 @@
 					<img id="argazki" alt="Aukeratu argazkia" class="argazkia" src="#" />
 					<br><br>
 					<div class="form-group">
-					<input type="file" class="form-control-file" id="argazkiaa" name="argazkia" accept="image/*">
+						<input type="file" class="form-control-file" id="argazkiaa" name="argazkia" accept="image/*">
 					</div>
 					<div class="form-group">
 						<input class="btn btn-success" type="submit" id="submit" value="Erregistratu" disabled="true">

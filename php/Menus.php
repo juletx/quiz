@@ -4,25 +4,25 @@
 	<?php } else { ?>
 	<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
 	<?php } ?>
-		<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup1"
-			aria-controls="navbarNavAltMarkup1" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<a class="navbar-brand" href="Layout.php">Quiz</a>
-		<div class="collapse navbar-collapse" id="navbarNavAltMarkup1">
-			<div class="navbar-nav mr-auto">
-				<a class="nav-item nav-link" href="Layout.php">Hasiera</a>
-				<a class="nav-item nav-link" href="PlayQuiz.php">Jolastu</a>
+	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+		aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<a class="navbar-brand" href="Layout.php">Quiz</a>
+	<div class="collapse navbar-collapse" id="navbarCollapse">
+		<div class="navbar-nav mr-auto">
+			<a class="nav-item nav-link" href="Layout.php">Hasiera</a>
+			<a class="nav-item nav-link" href="PlayQuiz.php">Jolastu</a>
 
-			<?php if (empty($_SESSION["eposta"])) { ?>
+		<?php if (empty($_SESSION["eposta"])) { ?>
 
-				<a class="nav-item nav-link" href="Credits.php">Kredituak</a>
-			</div>
-			<div class="navbar-nav ml-auto">
-				<a class="nav-item nav-link" href="SendPasswordEmail.php">Pasahitza berreskuratu</a>
-				<a class="nav-item nav-link" href="SignUp.php">Erregistratu</a>
-				<?php include 'LogIn.php'; ?>
-			</div>
+			<a class="nav-item nav-link" href="Credits.php">Kredituak</a>
+		</div>
+		<div class="navbar-nav ml-auto">
+			<a class="nav-item nav-link" href="SendPasswordEmail.php">Pasahitza berreskuratu</a>
+			<a class="nav-item nav-link" href="SignUp.php">Erregistratu</a>
+			<?php include 'LogIn.php'; ?>
+		</div>
 
 			<?php } else { 
 				include '../php/DbConfig.php';

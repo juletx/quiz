@@ -18,19 +18,30 @@
 					<tr>
 						<th>POSTUA</th>
 						<th>NICKA</th>
-						<th>ERANTZUNAK</th>
 						<th>ZUZENAK</th>
 						<th>OKERRAK</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td>juletx</td>
-						<td>10</td>
-						<td>5</td>
-						<td>5</td>
-					</tr>
+					<?php
+						include '../php/DbConfig.php';
+						$esteka = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db) or die("Errorea datu-baseko konexioan");
+						
+						$sql = "SELECT * FROM results ORDER BY zuzenak LIMIT 10";
+						$emaitza = mysqli_query($esteka, $sql) or die("Errorea datu-baseko kontsultan");
+
+						$postua = 1;
+
+						while ($row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)) {
+							echo '<tr>
+									<td>'.$postua.'</td>
+									<td>'.$row['nicka'].'</td>
+									<td>'.$row['zuzenak'].'</td>
+									<td>'.$row['okerrak'].'</td>
+								</tr>';
+							$postua = $postua + 1;
+						}
+					?>
 				<tbody>
 			</table>
 		</div>
