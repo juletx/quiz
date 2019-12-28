@@ -5,6 +5,7 @@
 <head>
 	<?php include '../html/Head.html'?>
 	<script src="../js/PlayQuizAjax.js"></script>
+	<script src="../js/LikeOrDislike.js"></script>
 </head>
 
 <body>
@@ -105,7 +106,11 @@
 										<label for="erantzuna4" class="form-check-label">'.$erantzunak[3].'</label>
 									</div>
 								</div>
-								<img src='.$row['argazkia'].' alt="Argazkia" class="argazkia"><br><br>';
+								<img src='.$row['argazkia'].' alt="Argazkia" class="argazkia"><br><br>
+								<div>
+									<a id="like'.$row['id'].'" class="fa fa-thumbs-up text-success"></a><span>'.$row['likes'].'</span>
+									<a id="dislike'.$row['id'].'" class="fa fa-thumbs-down text-danger"></a><span>'.$row['dislikes'].'</span>
+								</div><br>';
 						if ($galderaKop == 1) {
 							echo '<input class="erantzun btn btn-success" type="button" id="erantzun'.$count.'" value="Erantzun">
 								<input class="amaitu btn btn-danger" type="button" id="amaitu'.$count.'" value="Amaitu">

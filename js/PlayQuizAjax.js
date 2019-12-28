@@ -13,6 +13,8 @@ function next() {
 						$("#emaitza").html(d);
 					}
 				});
+
+				$("#galdera_gaia>fieldset").removeAttr("disabled");
 			} else {
 				galde[i + 1].style.display = 'block';
 			}
@@ -44,5 +46,7 @@ $(document).ready(function () {
 				$("#emaitza").html(d);
 			}
 		});
+
+		$("#galdera_gaia>fieldset").removeAttr("disabled");
 	});
 });
