@@ -24,19 +24,22 @@ function next() {
 }
 
 $(document).ready(function () {
-	$(".aldatu").click(function () {
-		next();
-	});
-
 	$(".erantzun").click(function () {
-		if ($("input:radio").is(':checked')) {
+		if ($(this).siblings(".form-group").find("input:radio").is(':checked')) {
 			next();
-    	} else {
+		} else {
 			alert('Aukeratu erantzun bat');
 		}
 	});
 
+	$(".aldatu").click(function () {
+		$(this).siblings(".form-group").find("input:radio").prop('checked', false);
+		next();
+	});
+
 	$(".amaitu").click(function () {
+		$(this).siblings(".form-group").find("input:radio").prop('checked', false);
+
 		$.ajax({
 			type: "POST",
 			url: "ShowResult.php",

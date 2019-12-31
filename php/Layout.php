@@ -18,6 +18,7 @@
 					<tr>
 						<th>POSTUA</th>
 						<th>NICKA</th>
+						<th>PUNTUAK</th>
 						<th>ZUZENAK</th>
 						<th>OKERRAK</th>
 					</tr>
@@ -27,15 +28,17 @@
 						include '../php/DbConfig.php';
 						$esteka = mysqli_connect($zerbitzaria, $erabiltzailea, $gakoa, $db) or die("Errorea datu-baseko konexioan");
 						
-						$sql = "SELECT * FROM results ORDER BY zuzenak LIMIT 10";
+						$sql = "SELECT * FROM results ORDER BY 3*zuzenak-okerrak DESC LIMIT 10";
 						$emaitza = mysqli_query($esteka, $sql) or die("Errorea datu-baseko kontsultan");
 
 						$postua = 1;
 
 						while ($row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)) {
+							$puntuak = 3 * $row['zuzenak'] - $row['okerrak'];
 							echo '<tr>
 									<td>'.$postua.'</td>
 									<td>'.$row['nicka'].'</td>
+									<td>'.$puntuak.'</td>
 									<td>'.$row['zuzenak'].'</td>
 									<td>'.$row['okerrak'].'</td>
 								</tr>';

@@ -15,6 +15,7 @@
 	while ($row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)) {
 		$id = $row['id'];
 		if (isset($_POST[$id])) {
+			$_SESSION['galderak'][$id] = "1";
 			if ($_POST[$id] == $row['erantzuna']){
 				$zuzenak = $zuzenak + 1;
 			}
