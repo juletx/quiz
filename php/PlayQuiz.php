@@ -99,7 +99,8 @@
 							else {
 								echo '<div id="galdera'.$count.'">';
 							}
-							echo '<h4>'.$count.'. '.$row['galdera'].'</h4>
+                            echo '<input type="hidden" id="isLiked'.$row['id'].'" name="isLiked'.$row['id'].'" value="0">';
+                            echo '<h4>'.$count.'. '.$row['galdera'].'</h4>
 									<div class="form-group">
 										<div class="form-check">
 											<input type="radio" class="form-check-input" name="'.$row['id'].'" value="'.$erantzunak[0].'" required>
@@ -120,8 +121,8 @@
 									</div>
 									<img src='.$row['argazkia'].' alt="Argazkia" class="argazkia"><br><br>
 									<div>
-										<a id="like'.$row['id'].'" class="fa fa-thumbs-o-up text-success"></a><span>'.$row['likes'].'</span>
-										<a id="dislike'.$row['id'].'" class="fa fa-thumbs-o-down text-danger"></a><span>'.$row['dislikes'].'</span>
+										<a  onclick="isLiked('.$row['id'].')" id="like'.$row['id'].'" class="fa fa-thumbs-o-up text-success"></a><span>'.$row['likes'].'</span>
+										<a  onclick="notLiked('.$row['id'].')" id="dislike'.$row['id'].'" class="fa fa-thumbs-o-down text-danger"></a><span>'.$row['dislikes'].'</span>
 									</div><br>';
 							if ($galderaKop == $count) {
 								echo '<input class="erantzun btn btn-success" type="button" value="Erantzun">

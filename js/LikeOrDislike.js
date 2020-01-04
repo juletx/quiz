@@ -45,3 +45,15 @@ $(document).ready(function () {
 		}
 	});
 });
+function isLiked(value){
+    var name='isLiked'.concat(value);
+    if($('input[name='+ name +']').val()=="1")
+        $('input[name='+ name +']').val('0');
+    else  $('input[name='+ name +']').val('1');
+}
+function notLiked(value){
+    var name='isLiked'.concat(value);
+    if($('input[name='+ name +']').val()=="-1")
+        $('input[name='+ name +']').val('0');
+    else  $('input[name='+ name +']').val('-1');
+}

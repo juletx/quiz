@@ -13,7 +13,7 @@
 	$hutsak = 0;
 
 	while ($row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)) {
-		$id = $row['id'];
+        $id = $row['id'];
 		if (isset($_POST[$id])) {
 			$_SESSION['galderak'][$id] = "1";
 			if ($_POST[$id] == $row['erantzuna']){
@@ -26,7 +26,22 @@
 		else {
 			$hutsak = $hutsak + 1;
 		}
-	}
+        if (isset($_POST["isLiked".$id])){
+            $liked=$_POST["isLiked".$id];   
+            if((int)$liked==1){
+                $sql = "UPDATE questions
+                SET likes = likes + 1
+              WHERE id ='$id'";    
+                mysqli_query($esteka, $sql) or die("Errorea datu-baseko kontsultan");    
+            }else if((int)$liked==-1){
+                $sql = "UPDATE questions
+                SET dislikes = dislikes + 1
+              WHERE id ='$id'";    
+                mysqli_query($esteka, $sql) or die("Errorea datu-baseko kontsultan");    
+            }
+        }
+        
+    }
 
 	$nicka = $_SESSION['nick'];
 
