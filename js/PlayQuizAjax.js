@@ -11,10 +11,9 @@ function next() {
 					success: function (d) {
 						$("#galderak").hide();
 						$("#emaitza").html(d);
+						$("#galdera_gaia>fieldset").removeAttr("disabled");
 					}
 				});
-
-				$("#galdera_gaia>fieldset").removeAttr("disabled");
 			} else {
 				galde[i + 1].style.display = 'block';
 			}
@@ -47,9 +46,8 @@ $(document).ready(function () {
 			success: function (d) {
 				$("#galderak").hide();
 				$("#emaitza").html(d);
+				$("#galdera_gaia>fieldset").removeAttr("disabled");
 			}
 		});
-
-		$("#galdera_gaia>fieldset").removeAttr("disabled");
 	});
 });

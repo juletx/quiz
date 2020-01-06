@@ -10,33 +10,25 @@
 
 	$zuzenak = 0;
 	$okerrak = 0;
-	$hutsak = 0;
 
 	while ($row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)) {
         $id = $row['id'];
 		if (isset($_POST[$id])) {
-			$_SESSION['galderak'][$id] = "1";
-			if ($_POST[$id] == $row['erantzuna']){
+			$_SESSION['galderak'][$id] = $_POST[$id];
+			if ($_POST[$id] == $row['erantzuna']) {
 				$zuzenak = $zuzenak + 1;
 			}
 			else {
 				$okerrak = $okerrak + 1;
 			}
 		}
-		else {
-			$hutsak = $hutsak + 1;
-		}
-        if (isset($_POST["isLiked".$id])){
-            $liked=$_POST["isLiked".$id];   
-            if((int)$liked==1){
-                $sql = "UPDATE questions
-                SET likes = likes + 1
-              WHERE id ='$id'";    
+        if (isset($_POST["isLiked".$id])) {
+            $liked = $_POST["isLiked".$id];   
+            if ((int)$liked == 1) {
+                $sql = "UPDATE questions SET likes = likes + 1 WHERE id ='$id'";    
                 mysqli_query($esteka, $sql) or die("Errorea datu-baseko kontsultan");    
-            }else if((int)$liked==-1){
-                $sql = "UPDATE questions
-                SET dislikes = dislikes + 1
-              WHERE id ='$id'";    
+            } else if ((int)$liked == -1) {
+                $sql = "UPDATE questions SET dislikes = dislikes + 1 WHERE id ='$id'";
                 mysqli_query($esteka, $sql) or die("Errorea datu-baseko kontsultan");    
             }
         }
@@ -52,13 +44,12 @@
 		$sql = "INSERT INTO results VALUES ('$nicka', $zuzenak, $okerrak)";
 	}
 	else {
-		$sql = "UPDATE results SET zuzenak=zuzenak+".$zuzenak.", okerrak=okerrak+".$okerrak;
+		$sql = "UPDATE results SET zuzenak = zuzenak + ".$zuzenak.", okerrak = okerrak + ".$okerrak;
 	}
 
 	$emaitza = mysqli_query($esteka, $sql) or die("Errorea datu-baseko kontsultan");
 
 	echo '<h2>Emaitzak</h2>
 		<h4>Erantzun zuzenak: '.$zuzenak.'<h4>
-		<h4>Erantzun okerrak: '.$okerrak.'<h4>
-		<h4>Erantzun gabekoak: '.$hutsak.'<h4>';
+		<h4>Erantzun okerrak: '.$okerrak.'<h4>';
 ?>

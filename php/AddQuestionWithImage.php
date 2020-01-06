@@ -39,7 +39,7 @@
 		}
 		
 		$sql = "INSERT INTO questions VALUES (NULL, '$eposta', '$galdera' , '$erantzuna', 
-			'$okerra1', '$okerra2', '$okerra3', $zailtasuna, '$gaia', '$argazkia')";
+			'$okerra1', '$okerra2', '$okerra3', $zailtasuna, '$gaia', '$argazkia', 0, 0)";
 			
 		$db_ondo = mysqli_query($esteka, $sql);
 		

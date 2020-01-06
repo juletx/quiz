@@ -37,7 +37,7 @@
 								
 								while ($row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)) {
                                     if (isset($_GET['gaia'])) {
-                                        if ($row['gaia'] = $_GET['gaia']) {
+                                        if ($row['gaia'] == $_GET['gaia']) {
                                             echo '<option value="'.$row['gaia'].'" selected>'.$row['gaia'].'</option>';
                                         } else {
                                             echo '<option value="'.$row['gaia'].'">'.$row['gaia'].'</option>';
@@ -78,69 +78,75 @@
 						}
 					}
 
-					mysqli_data_seek($emaitza, 0);
-
-                    $count = 1;
-					echo'<div id="galderak">
-							<h5>Erantzun gabeko '.$galderaKop.' galdera daude</h5>
-							<form id="form_galderak">';
-                    while ($row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)) {
-						if (!isset($_SESSION['galderak'][$row['id']])) {
-							$erantzunak = array();
-							array_push($erantzunak, $row['erantzuna']);
-							array_push($erantzunak, $row['okerra1']);
-							array_push($erantzunak, $row['okerra2']);
-							array_push($erantzunak, $row['okerra3']);
-
-							shuffle($erantzunak);
-							
-							if ($galderaKop != 1 && $count != 1) 
-								echo '<div id="galdera'.$count.'" style="display: none;">';
-							else {
-								echo '<div id="galdera'.$count.'">';
-							}
-                            echo '<input type="hidden" id="isLiked'.$row['id'].'" name="isLiked'.$row['id'].'" value="0">';
-                            echo '<h4>'.$count.'. '.$row['galdera'].'</h4>
-									<div class="form-group">
-										<div class="form-check">
-											<input type="radio" class="form-check-input" name="'.$row['id'].'" value="'.$erantzunak[0].'" required>
-											<label for="erantzuna1" class="form-check-label">'.$erantzunak[0].'</label>
-										</div>
-										<div class="form-check">
-											<input type="radio" class="form-check-input" name="'.$row['id'].'" value="'.$erantzunak[1].'" required>
-											<label for="erantzuna2" class="form-check-label">'.$erantzunak[1].'</label>
-										</div>
-										<div class="form-check">
-											<input type="radio" class="form-check-input" name="'.$row['id'].'" value="'.$erantzunak[2].'" required>
-											<label for="erantzuna3" class="form-check-label">'.$erantzunak[2].'</label>
-										</div>
-										<div class="form-check">
-											<input type="radio" class="form-check-input" name="'.$row['id'].'" value="'.$erantzunak[3].'" required>
-											<label for="erantzuna4" class="form-check-label">'.$erantzunak[3].'</label>
-										</div>
-									</div>
-									<img src='.$row['argazkia'].' alt="Argazkia" class="argazkia"><br><br>
-									<div>
-										<a  onclick="isLiked('.$row['id'].')" id="like'.$row['id'].'" class="fa fa-thumbs-o-up text-success"></a><span>'.$row['likes'].'</span>
-										<a  onclick="notLiked('.$row['id'].')" id="dislike'.$row['id'].'" class="fa fa-thumbs-o-down text-danger"></a><span>'.$row['dislikes'].'</span>
-									</div><br>';
-							if ($galderaKop == $count) {
-								echo '<input class="erantzun btn btn-success" type="button" value="Erantzun">
-									<input class="amaitu btn btn-danger" type="button" value="Amaitu">
-									<br><br>Galderak bukatu dira
-								</div>';
-							}
-							else {
-								echo '<input class="erantzun btn btn-success" type="button" value="Erantzun">
-									<input class="aldatu btn btn-warning" type="button" value="Aldatu galdera">
-									<input class="amaitu btn btn-danger" type="button" value="Amaitu">
-							</div>';
-							}
-							$count = $count + 1;
-						}
+					if ($galderaKop == 0) {
+						echo '<script>$("#galdera_gaia>fieldset").removeAttr("disabled");</script>';
+						echo '<h5>Ez dago erantzun gabeko galderarik</h5>';
 					}
-					echo'</form>
-					</div>';
+					else {
+						mysqli_data_seek($emaitza, 0);
+						$count = 1;
+						echo'<div id="galderak">
+								<h5>Erantzun gabeko '.$galderaKop.' galdera daude</h5>
+								<form id="form_galderak">';
+						while ($row = mysqli_fetch_array($emaitza, MYSQLI_ASSOC)) {
+							if (!isset($_SESSION['galderak'][$row['id']])) {
+								$erantzunak = array();
+								array_push($erantzunak, $row['erantzuna']);
+								array_push($erantzunak, $row['okerra1']);
+								array_push($erantzunak, $row['okerra2']);
+								array_push($erantzunak, $row['okerra3']);
+	
+								shuffle($erantzunak);
+								
+								if ($galderaKop != 1 && $count != 1) 
+									echo '<div id="galdera'.$count.'" style="display: none;">';
+								else {
+									echo '<div id="galdera'.$count.'">';
+								}
+								echo '<h4>'.$count.'. '.$row['galdera'].'</h4>
+										<div class="form-group">
+											<div class="form-check">
+												<input type="radio" class="form-check-input" name="'.$row['id'].'" value="'.$erantzunak[0].'" required>
+												<label for="erantzuna1" class="form-check-label">'.$erantzunak[0].'</label>
+											</div>
+											<div class="form-check">
+												<input type="radio" class="form-check-input" name="'.$row['id'].'" value="'.$erantzunak[1].'" required>
+												<label for="erantzuna2" class="form-check-label">'.$erantzunak[1].'</label>
+											</div>
+											<div class="form-check">
+												<input type="radio" class="form-check-input" name="'.$row['id'].'" value="'.$erantzunak[2].'" required>
+												<label for="erantzuna3" class="form-check-label">'.$erantzunak[2].'</label>
+											</div>
+											<div class="form-check">
+												<input type="radio" class="form-check-input" name="'.$row['id'].'" value="'.$erantzunak[3].'" required>
+												<label for="erantzuna4" class="form-check-label">'.$erantzunak[3].'</label>
+											</div>
+										</div>
+										<img src='.$row['argazkia'].' alt="Argazkia" class="argazkia"><br><br>
+										<div>
+											<a  onclick="isLiked('.$row['id'].')" id="like'.$row['id'].'" class="fa fa-thumbs-o-up text-success"></a><span>'.$row['likes'].'</span>
+											<a  onclick="notLiked('.$row['id'].')" id="dislike'.$row['id'].'" class="fa fa-thumbs-o-down text-danger"></a><span>'.$row['dislikes'].'</span>
+											<input type="hidden" id="isLiked'.$row['id'].'" name="isLiked'.$row['id'].'" value="0">
+										</div><br>';
+								if ($galderaKop == $count) {
+									echo '<input class="erantzun btn btn-success" type="button" value="Erantzun">
+										<input class="amaitu btn btn-danger" type="button" value="Amaitu">
+										<br><br>Galderak bukatu dira
+									</div>';
+								}
+								else {
+									echo '<input class="erantzun btn btn-success" type="button" value="Erantzun">
+										<input class="aldatu btn btn-warning" type="button" value="Aldatu galdera">
+										<input class="amaitu btn btn-danger" type="button" value="Amaitu">
+								</div>';
+								}
+								$count = $count + 1;
+							}
+						}
+						echo'</form>
+						</div>';
+					}
+	
                     mysqli_free_result($emaitza);
 					mysqli_close($esteka);
 				}
