@@ -12,6 +12,8 @@
 
 - ```index.php```: Proiektuaren erro-direktorioan dago, eta webgunea atzitzean lehenetsitako fitxategia da. ```Layout.php```-ra birbidalketa egiten du.
 
+- ```google-api-php-client-2.4.0```: Google login soziala egiteko beharreko fitxategiak.
+
 - ```html```
     - ```Head.html```: Orrialde guztietan head-en jarri beharrekoak: Izenburua, meta etiketak, css estilo orriak eta JavaScript-eko fitxategi batzuk.
     - ```Footer.html```: Orrialde guztietan agertzen den oina.
