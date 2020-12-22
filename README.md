@@ -6,6 +6,10 @@
 
 ## Fitxategiak
 
+- ```Gardenkiak```: Klaseko azalpenetarako erabilitako gardenkiak.
+
+- ```Laborategiak```: Laborategien enuntziatuak, azken lan praktikoa eta laguntza.
+
 - ```index.php```: Proiektuaren erro-direktorioan dago, eta webgunea atzitzean lehenetsitako fitxategia da. ```Layout.php```-ra birbidalketa egiten du.
 
 - ```html```
